@@ -1,7 +1,7 @@
 var config_data = `
 {
-  "title":"Scouting PASS 2022",
-  "page_title":"Rapid React",
+  "title":"Scouting 1577 - 2022",
+  "page_title":"Scouting 1577",
   "elements":{
     "prematch": {
       "Scouter Initials": {
@@ -14,7 +14,7 @@ var config_data = `
       "Event":{
         "code":"e",
         "type":"event",
-        "defaultValue":"2022flwp",
+        "defaultValue":"2022isde3",
         "required":"true",
         "disabled":"true"
       },
