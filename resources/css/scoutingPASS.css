@@ -6,7 +6,8 @@
     src: url("../fonts/alexisv3.ttf") format('truetype');
 }
 
-html, body{
+html,
+body {
     height: 100%;
     width: 100%;
     margin: 0;
@@ -15,9 +16,9 @@ html, body{
     background-color: black;
 }
 
-#prematch_table, #postmatch_table {
-
-    font-family : -apple-system, BlinkMacSystemFont, Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif !important;
+#prematch_table,
+#postmatch_table {
+    font-family: -apple-system, BlinkMacSystemFont, Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif !important;
     text-align: center;
     color: white;
     font-size: 13px;
@@ -27,8 +28,10 @@ html, body{
     border-color: white;
 }
 
-#auton_table, #endgame_table, #teleop_table {
-    font-family : -apple-system, BlinkMacSystemFont, Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif !important;
+#auton_table,
+#endgame_table,
+#teleop_table {
+    font-family: -apple-system, BlinkMacSystemFont, Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif !important;
     color: black;
     font-size: 13px;
     font-style: bold;
@@ -37,38 +40,42 @@ html, body{
     border-color: black;
 }
 
-
-#autonHeader, #endgameHeader, #teleopHeader1, #teleopHeader2{
+#autonHeader,
+#endgameHeader,
+#teleopHeader1,
+#teleopHeader2 {
     color: black;
     border-color: black;
     border-width: 4px;
 }
 
-#postmatchHeader{
+#postmatchHeader {
     border-width: 4px;
     border-color: white;
 }
 
-#prematchHeader1, #prematchHeader2{
+#prematchHeader1,
+#prematchHeader2 {
     color: white;
     border-color: white;
     border-width: 4px;
 }
 
-#qrHeader1, #qrHeader2 {
+#qrHeader1,
+#qrHeader2 {
     color: black;
 }
-    
+
 .field-image {
     margin: 2vw;
 }
 
-.field-image-src{  
+.field-image-src {
     background-position: center;
     border: 1px solid;
 }
 
-.main-panel{
+.main-panel {
     display: none;
     height: 100%;
     min-height: 100%;
@@ -78,46 +85,43 @@ html, body{
     top: 0;
     color: white;
     background-color: black;
-    font-family : -apple-system, BlinkMacSystemFont, Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif !important;
+    font-family: -apple-system, BlinkMacSystemFont, Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif !important;
     text-align: justify;
 }
 
-#prematch{
+#prematch {
     display: table;
 }
 
-#auton{
+#auton {}
+
+#teleop {}
+
+#endgame {}
+
+#postmatch {}
+
+#qr-code {
+    text-align: center;
 }
 
-#teleop{
-}
-
-#endgame{
-}
-
-#postmatch{
-}
-
-#qr-code{
-  text-align: center;
-}
-
-h1{
+h1 {
     font-family: Alexis;
     text-align: center;
     border-style: groove;
-    border-color: white; 
+    border-color: white;
     border-width: 2px;
     font-size: 40px;
-    padding: 10px; 
+    padding: 10px;
     font-weight: 350;
 }
 
-#page2, #page4 {
+#page2,
+#page4 {
     color: black;
 }
 
-h2{
+h2 {
     font-family: Alexis;
     text-align: center;
     font-size: 30px;
@@ -125,18 +129,18 @@ h2{
     font-style: italic;
 }
 
-.match-label{
+.match-label {
     text-align: center;
 }
 
-.half-button-l{
+.half-button-l {
     width: 48%;
     margin: 1vw;
     height: 100%;
     font: roboto;
 }
 
-.half-button-r{
+.half-button-r {
     flex-grow: 1;
     height: 100%;
     width: 48%;
@@ -144,44 +148,65 @@ h2{
     font: roboto;
 }
 
-.half-button-container{
+.center {
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.half-button-container {
     display: flex;
 }
 
-#nextButton1, #nextButton2, #nextButton9, #nextButton10, .clearForm{
-    font-family: Alexis; 
+#nextButton1,
+#nextButton2,
+#nextButton9,
+#nextButton10,
+.clearForm {
+    font-family: Alexis;
     padding: 10px;
     background-color: rgb(151, 199, 240);
     text-decoration: none;
     display: inline-block;
 }
 
-#nextButton3, #nextButton4, #nextButton5, #nextButton6, #nextButton7, #nextButton8, .undoButton{
+#nextButton3,
+#nextButton4,
+#nextButton5,
+#nextButton6,
+#nextButton7,
+#nextButton8,
+.undoButton {
     font-family: Alexis;
-    background-color: black; 
+    background-color: black;
     padding: 10px;
     color: white;
 }
 
-#prevButton7, #prevButton8, #prevButton9{
+#prevButton7,
+#prevButton8,
+#prevButton9 {
     font-family: Alexis;
-    background-color: rgb(151, 199, 240); 
+    background-color: rgb(151, 199, 240);
     padding: 10px;
 }
 
-#prevButton1, #prevButton2, #prevButton3, #prevButton4, #prevButton5, #prevButton6{
+#prevButton1,
+#prevButton2,
+#prevButton3,
+#prevButton4,
+#prevButton5,
+#prevButton6 {
     font-family: Alexis;
-    background-color: black; 
+    background-color: black;
     padding: 10px;
     color: white;
-    
 }
 
-#prematch_table{
+#prematch_table {
     font: Alexis;
     text-align: center;
 }
-
 
 h1 .odd {
     font-family: Alexis;
