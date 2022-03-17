@@ -14,7 +14,7 @@ var config_data = `
       "Event":{
         "code":"e",
         "type":"event",
-        "defaultValue":"2022isde3",
+        "defaultValue":"2022isde1",
         "required":"true",
         "disabled":"true"
       },
@@ -64,7 +64,7 @@ var config_data = `
         "filename":"2022/field_image.png"
       }
     },
-    "auton": {
+    "auto": {
       "Taxi": {
         "code":"at",
         "title": "Taxied?",
@@ -73,6 +73,11 @@ var config_data = `
       "Upper Cargo Scored": {
         "code":"au",
         "title": "Uppoer Cargo Scored",
+        "type":"counter"
+      },
+      "Upper Cargo Missed": {
+        "code": "amh",
+        "title": "Upper Cargo Missed",
         "type":"counter"
       },
       "Lower Cargo Scored": {
@@ -89,7 +94,12 @@ var config_data = `
     "teleop": {
       "Upper Cargo Scored": {
         "code":"tu",
-        "title": "Uppoer Cargo Scored",
+        "title": "Upper Cargo Scored",
+        "type":"counter"
+      },
+      "Upper Cargo Missed": {
+        "code": "tmh",
+        "title": "Upper Cargo Missed",
         "type":"counter"
       },
       "Lower Cargo Scored": {
