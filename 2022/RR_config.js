@@ -111,11 +111,7 @@ var config_data = `
         "title": "Was Defended",
         "type":"bool"
       },
-      "Wallbot?": {
-        "code":"wbt",
-        "title": "Wallbot?",
-        "type":"bool"
-      },
+      
       "Cargo Intake From": {
         "code":"cif",
         "title": "Cargo Intake From",
@@ -168,11 +164,6 @@ var config_data = `
         "code":"be",
         "title": "Started climb before EndGame",
         "type":"bool"
-      },
-      "Num of Robots Climbed": {
-        "code":"cn",
-        "title": "# of alliance bots climbed",
-        "type":"counter"
       }
     },
     "postmatch": {

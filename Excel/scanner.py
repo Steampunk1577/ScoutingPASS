@@ -6,7 +6,7 @@ from pyzbar.pyzbar import decode
 import openpyxl
 import QRscanner
 
-fileName = "Book1.xlsx"
+fileName = "Excel/ScoutingPASS_Excel_Example.xlsm"
 offset = 1
 
 def colnum_string(n):
