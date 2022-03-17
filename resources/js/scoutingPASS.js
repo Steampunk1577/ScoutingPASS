@@ -521,8 +521,12 @@ function validateData() {
     var ret = true
     var errStr = "Bad fields: ";
     for (rf of requiredFields) {
+        if(rf == "as"){
+            errStr += "lidor you forgot to mark auto start location. "
+            ret = false
+        }
         // Robot requires special (radio) validation
-        if (rf == "r") {
+        else if (rf == "r") {
             if (!validateRobot()) {
                 errStr += rf + " "
                 ret = false

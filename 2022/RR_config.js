@@ -74,20 +74,16 @@ var config_data = `
         "title": "Uppoer Cargo Scored",
         "type":"counter"
       },
-      "Upper Cargo Missed": {
-        "code": "amh",
-        "title": "Upper Cargo Missed",
-        "type":"counter"
-      },
+      
       "Lower Cargo Scored": {
         "code":"al",
         "title": "Lower Cargo Scored",
         "type":"counter"
       },
-      "Auto Aquired Cargo": {
-        "code":"ac",
-        "title": "Picked up more cargo?",
-        "type":"bool"
+      "Cargo Missed": {
+        "code": "am",
+        "title": "Upper Cargo Missed",
+        "type":"counter"
       }
     },
     "teleop": {
@@ -106,23 +102,15 @@ var config_data = `
         "title": "Lower Cargo Scored",
         "type":"counter"
       },
+      "Upper Cargo Missed": {
+        "code": "tmh",
+        "title": "Upper Cargo Missed",
+        "type":"counter"
+      },
       "Was Defended": {
         "code":"wd",
         "title": "Was Defended",
         "type":"bool"
-      },
-      
-      "Cargo Intake From": {
-        "code":"cif",
-        "title": "Cargo Intake From",
-        "type":"radio",
-        "choices":{
-          "t":"Terminal<br>",
-          "g":"Ground<br>",
-          "b":"Both<br>",
-          "x":"Not Attempted"
-        },
-        "defaultValue":"x"
       },
       "Shooting Spot": {
         "code":"ss",
@@ -172,10 +160,12 @@ var config_data = `
         "title": "Driver Skill",
         "type":"radio",
         "choices":{
-          "n":"Not Effective<br>",
-          "a":"Average<br>",
-          "v":"Very Effective<br>",
-          "x":"Not Observed"
+          "1":"1<br>",
+          "2":"2<br>",
+          "3":"3<br>",
+          "4":"4<br>",
+          "5":"5<br>",
+          "n/a":"n/a"
         },
         "defaultValue":"x"
       },
@@ -184,19 +174,34 @@ var config_data = `
         "title": "Defense Rating",
         "type":"radio",
         "choices":{
-          "n":"Not Effective<br>",
-          "a":"Average<br>",
-          "v":"Very Effective<br>",
-          "x":"Not Observed"
+          "1":"1<br>",
+          "2":"2<br>",
+          "3":"3<br>",
+          "4":"4<br>",
+          "5":"5<br>",
+          "n/a":"n/a"
         },
         "defaultValue":"x"
       },
-      "Shot enemy balls away?": {
+      "Avoiding defence Rating": {
+        "code":"dr",
+        "title": "Defense Rating",
+        "type":"radio",
+        "choices":{
+          "1":"1<br>",
+          "2":"2<br>",
+          "3":"3<br>",
+          "4":"4<br>",
+          "5":"5"
+        },
+        "defaultValue":"x"
+      },
+      "Shot away/hide enemy balls?": {
         "code":"ba",
         "title": "Shot enemy balls away?",
         "type":"bool"
       },
-      "Died/Tipped": {
+      "Died/Tipped/Disabled": {
         "code":"d",
         "title": "Died/Tipped",
         "type":"bool"
