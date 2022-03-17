@@ -23,7 +23,6 @@ var config_data = `
         "type":"level",
         "choices":{
           "qm":"Quals<br>",
-          "ef":"Eighth-Final<br>",
           "qf":"Quarter-Final<br>",
           "sf":"Semi-Final<br>",
           "f":"Final"
@@ -64,7 +63,7 @@ var config_data = `
         "filename":"2022/field_image.png"
       }
     },
-    "auto": {
+    "auton": {
       "Taxi": {
         "code":"at",
         "title": "Taxied?",
