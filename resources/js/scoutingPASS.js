@@ -466,6 +466,8 @@ function validateRobot() {
     }
 }
 
+
+
 function resetRobot() {
     if (document.getElementById("input_r_r1").checked) {
         document.getElementById("input_r_r1").checked = false
@@ -521,12 +523,8 @@ function validateData() {
     var ret = true
     var errStr = "Bad fields: ";
     for (rf of requiredFields) {
-        if(rf == "as"){
-            errStr += "lidor you forgot to mark auto start location. "
-            ret = false
-        }
         // Robot requires special (radio) validation
-        else if (rf == "r") {
+        if (rf == "r") {
             if (!validateRobot()) {
                 errStr += rf + " "
                 ret = false
@@ -543,7 +541,7 @@ function validateData() {
         }
     }
     if (ret == false) {
-        alert("Enter all required values\n" + errStr);
+        alert("Enter all required values\n" + errStr.replace("as", document.getElementById("input_s").value + " you forgot to select auto location"));
     }
     return ret
 }
@@ -895,6 +893,17 @@ function undo(event) {
     changingInput.value = JSON.stringify(tempValue);
     drawFields();
 }
+let ClickCounter = 0;
+
+function changeLogo() {
+    var logo = document.getElementById("logoPic");
+    ClickCounter++;
+    if (ClickCounter % 5 == 4) {
+        logo.src = "resources/images/colored.png";
+    } else if (ClickCounter % 5 == 0) {
+        logo.src = "resources/images/white.png";
+    }
+}
 
 window.onload = function() {
     var ret = configure();
@@ -905,3 +914,5 @@ window.onload = function() {
         this.drawFields();
     }
 };
+//}
+//};

@@ -4,7 +4,7 @@ var config_data = `
   "page_title":"Scouting 1577",
   "elements":{
     "prematch": {
-      "Scouter Initials": {
+      "Scouter Name": {
         "code":"s",
         "type":"scouter",
         "size":5,
