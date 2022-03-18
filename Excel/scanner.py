@@ -6,7 +6,7 @@ from pyzbar.pyzbar import decode
 import openpyxl
 import QRscanner
 
-fileName = "Excel/ScoutingPASS_Excel_Example.xlsm"
+fileName = "Excel/Book1.xlsx"
 offset = 1
 
 def colnum_string(n):
@@ -42,8 +42,8 @@ if __name__ == "__main__":
             cv2.destroyAllWindows()
             break  # esc to quit
     #for testing purposes
-    #data = "s=TEST;e=2022isde3;l=qm;m=3;r=r1;t=1577;as=[29];at=Y;au=2;al=0;ac=N;tu=2;tl=1;wd=N;wbt=Y;cif=x;ss=[30,56,22,49];c=4;lsr=3;be=N;cn=6;ds=x;dr=x;ba=N;d=N;cf=Y;all=N;co=heeeeeelo;cnf=a"
-    formatedData = formatData(data[1])
+    data = "s=Ofir;e=2022isde1;l=qm;m=5;r=b2;t=8223;as=[31];at=Y;au=2;al=1;am=3;tu=3;tmh=1;tl=2;wd=Y;ss=[18,32,55,53,28];c=3;lsr=2;be=Y;ds=3;dr=5;ba=Y;d=N;cf=Y;all=N;co=yess;cnf=a"
+    formatedData = formatData(data)#[1])
     excelWorkbook = openpyxl.load_workbook(filename = fileName)
     excelSheet = excelWorkbook["raw"]
     maxRow = len(excelSheet["A"])
