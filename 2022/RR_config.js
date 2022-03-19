@@ -92,18 +92,13 @@ var config_data = `
         "title": "Upper Cargo Scored",
         "type":"counter"
       },
-      "Upper Cargo Missed": {
-        "code": "tmh",
-        "title": "Upper Cargo Missed",
-        "type":"counter"
-      },
       "Lower Cargo Scored": {
         "code":"tl",
         "title": "Lower Cargo Scored",
         "type":"counter"
       },
-      "Upper Cargo Missed": {
-        "code": "tmh",
+      "Cargo Missed": {
+        "code": "tm",
         "title": "Upper Cargo Missed",
         "type":"counter"
       },
@@ -164,10 +159,9 @@ var config_data = `
           "2":"2<br>",
           "3":"3<br>",
           "4":"4<br>",
-          "5":"5<br>",
-          "n/a":"n/a"
+          "5":"5"
         },
-        "defaultValue":"x"
+        "defaultValue":"3"
       },
       "Defense Rating": {
         "code":"dr",
@@ -184,15 +178,16 @@ var config_data = `
         "defaultValue":"x"
       },
       "Avoiding defence Rating": {
-        "code":"dr",
-        "title": "Defense Rating",
+        "code":"adr",
+        "title": "Avoiding Defense Rating",
         "type":"radio",
         "choices":{
           "1":"1<br>",
           "2":"2<br>",
           "3":"3<br>",
           "4":"4<br>",
-          "5":"5"
+          "5":"5<br>",
+          "n/a:"n/a"
         },
         "defaultValue":"x"
       },

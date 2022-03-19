@@ -42,7 +42,7 @@ if __name__ == "__main__":
             cv2.destroyAllWindows()
             break  # esc to quit
     #for testing purposes
-    data = "s=Ofir;e=2022isde1;l=qm;m=5;r=b2;t=8223;as=[31];at=Y;au=2;al=1;am=3;tu=3;tmh=1;tl=2;wd=Y;ss=[18,32,55,53,28];c=3;lsr=2;be=Y;ds=3;dr=5;ba=Y;d=N;cf=Y;all=N;co=yess;cnf=a"
+    #data = "s=Ofir;e=2022isde1;l=qm;m=5;r=b2;t=8223;as=[31];at=Y;au=2;al=1;am=3;tu=3;tmh=1;tl=2;wd=Y;ss=[18,32,55,53,28];c=3;lsr=2;be=Y;ds=3;dr=5;ba=Y;d=N;cf=Y;all=N;co=yess;cnf=a"
     formatedData = formatData(data)#[1])
     excelWorkbook = openpyxl.load_workbook(filename = fileName)
     excelSheet = excelWorkbook["raw"]
