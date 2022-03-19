@@ -187,7 +187,7 @@ var config_data = `
           "3":"3<br>",
           "4":"4<br>",
           "5":"5<br>",
-          "n/a:"n/a"
+          "n/a":"n/a"
         },
         "defaultValue":"x"
       },
