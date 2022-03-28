@@ -19,7 +19,7 @@ def generateData():
             elif field["type"] in  ["match","counter"]:
                 dataStr += field["code"] + '=' + str(random.randrange(0,10)) + ';'
             elif field["type"] == "team":
-                dataStr += field["code"] + "='" + random.choice(['1577','1690','1937','4590','2212']) + "';"
+                dataStr += field["code"] + "=" + random.choice([" '1577'"," '1690'"," '1937'"," '4590'"," '2212'"]) + ";"
             elif field["code"] == "as":
                 dataStr+=f"as=[{random.randrange(15,30)}];"
             elif field["code"] == "ss":
