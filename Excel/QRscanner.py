@@ -14,6 +14,6 @@ def read_barcodes(frame):
         
         #2
         font = cv2.FONT_HERSHEY_DUPLEX
-        cv2.putText(frame,"press ESC to continue", (x + 6, y - 6), font, 0.5, (255, 255, 255), 1)
+        cv2.putText(frame, "press Space to continue", (x + 6, y - 6), font, 0.5, (255, 255, 255), 1)
         
-    return hasBarcodes,barcode_info,frame
+    return hasBarcodes, barcode_info, frame

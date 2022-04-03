@@ -1,7 +1,7 @@
 var config_data = `
 {
-  "title":"Scouting 1577 - 2022!",
-  "page_title":"Scouting 1577!",
+  "title":"Scouting 1577 - 2022",
+  "page_title":"Scouting 1577",
   "elements":{
     "prematch": {
       "Scouter Name": {
