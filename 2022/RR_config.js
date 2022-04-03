@@ -228,7 +228,14 @@ var config_data = `
           "n":"Not Confident"
       },
        "defaultValue":"a"
-    }
+    },
+    "Had Issues?": {
+        "code":"iss",
+        "title": "Had Issues?",
+        "type":"text",
+        "size":15,
+        "maxSize":50
+      },
     }
   }
 }`;
