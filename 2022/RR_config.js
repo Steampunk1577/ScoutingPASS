@@ -1,7 +1,7 @@
 var config_data = `
 {
-  "title":"Scouting 1577 - 2022",
-  "page_title":"Scouting 1577",
+  "title":"Scouting 1577 - 2022!",
+  "page_title":"Scouting 1577!",
   "elements":{
     "prematch": {
       "Scouter Name": {
@@ -175,7 +175,7 @@ var config_data = `
           "5":"5<br>",
           "n/a":"n/a"
         },
-        "defaultValue":"x"
+        "defaultValue":"n/a"
       },
       "Avoiding defence Rating": {
         "code":"adr",
@@ -189,7 +189,7 @@ var config_data = `
           "5":"5<br>",
           "n/a":"n/a"
         },
-        "defaultValue":"x"
+        "defaultValue":"n/a"
       },
       "Shot away/hide enemy balls?": {
         "code":"ba",
