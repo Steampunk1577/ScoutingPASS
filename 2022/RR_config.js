@@ -235,7 +235,7 @@ var config_data = `
         "type":"text",
         "size":15,
         "maxSize":50
-      },
+      }
     }
   }
 }`;
