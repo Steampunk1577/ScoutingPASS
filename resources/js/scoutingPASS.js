@@ -721,6 +721,7 @@ function swipePage(incriment) {
             slide += incriment;
             window.scrollTo(0, 0);
             slides[slide].style.display = "table";
+            document.getElementById("qrHeader2").innerHTML = getCurrentMatchKey() + ":" + document.getElementById("input_t").value;
         }
     }
 }
