@@ -143,10 +143,11 @@ var config_data = `
         },
         "defaultValue":"x"
       },
-      "Started Climb before Endgame": {
+      "Start Climbing Time": {
         "code":"be",
-        "title": "Started climb before EndGame",
-        "type":"bool"
+        "title": "Start Climbing Time",
+        "type":"number",
+        "defaultValue":0
       }
     },
     "postmatch": {
@@ -229,9 +230,9 @@ var config_data = `
       },
        "defaultValue":"a"
     },
-    "Had Issues?": {
+    "Report Shani team": {
         "code":"iss",
-        "title": "Had Issues?",
+        "title": "Report Shani team",
         "type":"text",
         "size":15,
         "maxSize":50
