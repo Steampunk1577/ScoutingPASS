@@ -6,7 +6,7 @@ from pyzbar.pyzbar import decode
 import openpyxl
 import QRscanner
 
-fileName = "Excel/Book1.xlsx"
+fileName = "Book1.xlsx"
 offset = 1
 
 
