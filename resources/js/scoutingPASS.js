@@ -859,7 +859,7 @@ function onTeamnameChange(event) {
     var newNumber = document.getElementById("input_t").value;
     var teamLabel = document.getElementById("teamname-label");
     if (newNumber != "") {
-        teamLabel.innerText = getTeamName(newNumber) != "" ? "You are scouting " + getTeamName(newNumber) : "That team isn't playing this match, please double check to verify correct number";
+        teamLabel.innerText = getTeamName(newNumber) != "" ? "You are scouting " + newNumber + " : " + getTeamName(newNumber) : "That team isn't playing this match, please double check to verify correct number";
     } else {
         teamLabel.innerText = "";
     }
