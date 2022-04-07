@@ -722,6 +722,12 @@ function swipePage(incriment) {
             window.scrollTo(0, 0);
             slides[slide].style.display = "table";
             document.getElementById("qrHeader2").innerHTML = getCurrentMatchKey() + ":" + document.getElementById("input_t").value;
+            document.getElementById("autonHeader2").innerHTML = "Auton " + document.getElementById("input_t").value;
+            document.getElementById("teleopHeader2").innerHTML = "Teleop " + document.getElementById("input_t").value;
+            document.getElementById("endgameHeader2").innerHTML = "Endgame " + document.getElementById("input_t").value;
+            document.getElementById("postmatchHeader2").innerHTML = "Miscellaneous " + document.getElementById("input_t").value;
+
+
         }
     }
 }
