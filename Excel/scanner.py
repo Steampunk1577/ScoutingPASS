@@ -5,8 +5,9 @@ import numpy as np
 from pyzbar.pyzbar import decode
 import openpyxl
 import QRscanner
+import xlwings
 
-fileName = "Book1.xlsx"
+fileName = "Book1.xlsm"
 offset = 1
 
 
@@ -36,25 +37,38 @@ def formatData(rawData):
 
 def ExcelHandler(data):
     formatedData = formatData(data)
-    excelWorkbook = openpyxl.load_workbook(filename=fileName)
+    excelWorkbook = openpyxl.load_workbook(filename=fileName, keep_vba=True)
     excelSheet = excelWorkbook["raw"]
     maxRow = excelSheet.max_row
     #print(maxRow)
 
+    unique_id = getUniqueId(formatedData)
     for line in range(1, maxRow + 1):
         duplicate = True
         for col, val in enumerate(formatedData, start=1):
             duplicate &= (excelSheet.cell(row=line, column=col).value == val) \
                           or (excelSheet.cell(row=line, column=col).value is None and val == "")
             if not duplicate:
+                
                 break
         if duplicate:
-            print("This line already exists")
+            print("This line already exists: {}".format(unique_id))
             return
+    print("QR Scanned Successfully: {}".format(unique_id))
+            
 
     for col, d in enumerate(formatedData, start=1):
         excelSheet.cell(row=maxRow + 1, column=col).value = d
     excelWorkbook.save(fileName)
+    wb = xlwings.Book(fileName)
+    wb.app.quit()
+
+
+def getUniqueId(foramttedData):
+    try:
+        return "{}{}:{}".format(foramttedData[2], foramttedData[3], foramttedData[5])
+    except IndexError:
+        return "unknownID"
 
 
 if __name__ == "__main__":
