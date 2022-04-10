@@ -7,8 +7,8 @@ var config_data = `
       "Scouter Name": {
         "code":"s",
         "type":"scouter",
-        "size":5,
-        "maxSize":5,
+        "size":10,
+        "maxSize":10,
         "required":"true"
       },
       "Event":{
@@ -216,7 +216,7 @@ var config_data = `
         "code":"co",
         "title": "Comments",
         "type":"text",
-        "size":15,
+        "size":50,
         "maxSize":50
       },
       "Confidence Rating": {
@@ -234,8 +234,8 @@ var config_data = `
         "code":"iss",
         "title": "Report Shani team",
         "type":"text",
-        "size":15,
-        "maxSize":50
+        "size":25,
+        "maxSize":25
       }
     }
   }
