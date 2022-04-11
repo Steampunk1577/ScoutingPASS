@@ -167,7 +167,10 @@ function addText(table, idx, name, data) {
     inp.setAttribute("type", "text");
     inp.setAttribute("name", data.code);
 
-    if (data.hasOwnProperty('maxSize')) {
+    if (data.hasOwnProperty('rows') && data.hasOwnProperty('cols')) {
+        inp.setAttribute("maxLength", data.cols * data.rows);
+    }
+    else if (data.hasOwnProperty('maxSize')) {
         inp.setAttribute("maxLength", data.maxSize);
     }
     if (data.hasOwnProperty('defaultValue')) {
