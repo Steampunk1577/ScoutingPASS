@@ -115,23 +115,19 @@ var config_data = `
       }
     },
     "endgame": {
-      "Climb": {
+      "Try to Climb?": {
         "code":"c",
-        "title": "Climb",
+        "title": "Try to Climb?",
         "type":"radio",
         "choices":{
-          "1":"Low<br>",
-          "2":"Mid<br>",
-          "3":"High<br>",
-          "4":"Traversal<br>",
-          "a":"Attempted but failed<br>",
+          "1":"Tried to Climb<br>",
           "x":"Not attempted"
         },
         "defaultValue":"x"
       },
-      "If climb failed,<br>Last successful rung,<br>if any": {
+      "Climb Result": {
         "code":"lsr",
-        "title": "If climb failed,<br>last successful rung,<br>if any",
+        "title": "Climb Result",
         "type":"radio",
         "choices":{
           "1":"Low<br>",
@@ -216,8 +212,10 @@ var config_data = `
         "code":"co",
         "title": "Comments",
         "type":"text",
-        "size":50,
-        "maxSize":50
+        "rows":3,
+        "cols":20,
+        "size":20,
+        "maxSize":20
       },
       "Confidence Rating": {
         "code":"cnf",
@@ -234,8 +232,10 @@ var config_data = `
         "code":"iss",
         "title": "Report Shani team",
         "type":"text",
-        "size":25,
-        "maxSize":25
+        "rows":2,
+        "cols":20,
+        "size":15,
+        "maxSize":15
       }
     }
   }

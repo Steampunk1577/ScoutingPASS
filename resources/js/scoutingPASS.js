@@ -147,13 +147,26 @@ function addText(table, idx, name, data) {
     var cell2 = row.insertCell(1);
     cell1.innerHTML = name + '&nbsp;';
     cell2.classList.add("field");
-    var inp = document.createElement("input");
+    if (data.hasOwnProperty('rows')) {
+        var inp = document.createElement("textarea");
+        if (data.hasOwnProperty('rows')) {
+            inp.setAttribute("rows", data.rows);
+        }
+        if (data.hasOwnProperty('cols')) {
+            inp.setAttribute("cols", data.cols);
+        }
+    }
+    else {
+        var inp = document.createElement("input");
+        if (data.hasOwnProperty('size')) {
+            inp.setAttribute("size", data.size);
+        }
+    }
+
     inp.setAttribute("id", "input_" + data.code);
     inp.setAttribute("type", "text");
     inp.setAttribute("name", data.code);
-    if (data.hasOwnProperty('size')) {
-        inp.setAttribute("size", data.size);
-    }
+
     if (data.hasOwnProperty('maxSize')) {
         inp.setAttribute("maxLength", data.maxSize);
     }
