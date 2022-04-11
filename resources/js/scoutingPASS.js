@@ -149,6 +149,7 @@ function addText(table, idx, name, data) {
     cell2.classList.add("field");
     if (data.hasOwnProperty('rows')) {
         var inp = document.createElement("textarea");
+        inp.setAttribute("dir", "rtl");
         if (data.hasOwnProperty('rows')) {
             inp.setAttribute("rows", data.rows);
         }
