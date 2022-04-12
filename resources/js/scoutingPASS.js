@@ -689,7 +689,7 @@ function clearForm() {
                 }
             }
         } else {
-            if (e.type == "number" || e.type == "text" || e.type == "hidden") {
+            if (e.type == "number" || e.type == "text" || e.type =="textarea" || e.type == "hidden") {
                 if (e.className == "counter") {
                     e.value = 0
                 } else {
