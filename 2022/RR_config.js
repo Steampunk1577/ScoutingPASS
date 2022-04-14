@@ -14,7 +14,7 @@ var config_data = `
       "Event":{
         "code":"e",
         "type":"event",
-        "defaultValue":"2022iscmp",
+        "defaultValue":"2022tur",
         "required":"true",
         "disabled":"true"
       },
