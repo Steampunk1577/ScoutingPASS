@@ -14,7 +14,7 @@ var config_data = `
       "Event":{
         "code":"e",
         "type":"event",
-        "defaultValue":"2022tur",
+        "defaultValue":"2022isios",
         "required":"true",
         "disabled":"true"
       },
