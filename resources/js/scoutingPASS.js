@@ -963,7 +963,7 @@ function clearForm() {
   inputs = document.querySelectorAll("[id*='XY_']");
   for (e of inputs) {
     code = e.id.substring(3)
-    e.value = "[]"
+    e.value = "[ ]"
   }
 
   inputs = document.querySelectorAll("[id*='input_']");

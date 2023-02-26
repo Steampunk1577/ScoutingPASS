@@ -14,7 +14,7 @@ var config_data = `
   { "name": "Event",
     "code": "e",
     "type": "event",
-    "defaultValue": "2022tur",
+    "defaultValue": "2023isde1",
     "required": "true",
     "disabled": "true"
   },
@@ -187,6 +187,7 @@ var config_data = `
       "5": "5<br>",
       "n/a":"n/a"
     },
+    "defaultValue": "n/a",
     "required": "true"
   },
   { "name": "Defense Rating",
