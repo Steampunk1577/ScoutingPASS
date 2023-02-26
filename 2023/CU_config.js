@@ -82,7 +82,11 @@ var config_data = `
   { "name": "Pass A Game Piece",
   "code": "pagp",
   "type": "counter"
-},
+  },
+  { "name": "Left The Community Zone",
+  "code": "ltcz",
+  "type": "bool"
+  },
   { "name": "Docked",
     "code": "ad",
     "type":"radio",
