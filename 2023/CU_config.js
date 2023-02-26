@@ -14,7 +14,7 @@ var config_data = `
   { "name": "Event",
     "code": "e",
     "type": "event",
-    "defaultValue": "2022tur",
+    "defaultValue": "2023isde1",
     "required": "true",
     "disabled": "true"
   },
