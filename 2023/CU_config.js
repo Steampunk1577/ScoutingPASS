@@ -187,6 +187,7 @@ var config_data = `
       "5": "5<br>",
       "n/a":"n/a"
     },
+    "defaultValue": "n/a",
     "required": "true"
   },
   { "name": "Defense Rating",
