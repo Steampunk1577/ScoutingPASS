@@ -889,14 +889,15 @@ function getData(useStr) {
             fd.append(name, uncheckedChar)
           }
         }
-      } else {
+    } else {
 	if (e.className == "cycle") {
-	  e = document.getElementById("cycletime_" + code);
+	  e = document.getElementById("cycletime_" + code)
 	}
+	let val = e.value.split(';').join('-').replace(/"/g,'')
         if (useStr) {
-          str = str + code + '=' + e.value.split(';').join('-')
+          str = str + code + '=' + val
         } else {
-          fd.append(name, e.value.split(';').join('-'))
+          fd.append(name, val)
         }
       }
     }
@@ -1284,7 +1285,13 @@ function onTeamnameChange(event) {
  * @param {number} step the amount to add to the value tag.
  */
 function counter(element, step) {
+  let target = event.target;
+  let base = getIdBase(target.id);
   var ctr = element.getElementsByClassName("counter")[0];
+  var ctr = element.getElementsByClassName("counter")[0];
+  let cycleTimer = document.getElementById("cycleTimer" + base);
+  var result = parseInt(ctr.value) + step;
+  var result = parseInt(ctr.value) + step;
   var result = parseInt(ctr.value) + step;
 
   if (isNaN(result)) {
