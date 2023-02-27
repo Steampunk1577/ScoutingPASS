@@ -7,7 +7,7 @@ var config_data = `
     { "name": "Scouter Name",
     "code": "s",
     "type": "scouter",
-    "size": 5,
+    "size": 15,
     "maxSize": 5,
     "required": "true"
   },
