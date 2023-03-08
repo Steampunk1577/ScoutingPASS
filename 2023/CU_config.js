@@ -7,8 +7,8 @@ var config_data = `
     { "name": "Scouter Name",
     "code": "s",
     "type": "scouter",
-    "size": 15,
-    "maxSize": 5,
+    "size": 5,
+    "maxSize": 15,
     "required": "true"
   },
   { "name": "Event",
@@ -173,10 +173,6 @@ var config_data = `
       "3": "3"
   }, 
   "defaultValue": "0"
-  },
-  { "name": "Helped Another Bot",
-    "code": "hab",
-    "type": "bool"
   }
 ],
 "postmatch": [
@@ -220,10 +216,6 @@ var config_data = `
     },
     "defaultValue":"n/a"
   },
-  { "name": "Died/Tipped/Disabled",
-    "code": "dtd",
-    "type": "bool"
-  },
   { "name": "Foul Card",
     "code": "fc",
     "type": "radio",
@@ -246,9 +238,43 @@ var config_data = `
     "size": 20,
     "maxSize": 200,
     "required": "true"
+  }
+],
+"secondaryforce": [
+  { "name": "Drive System Problems (Disabled)",
+    "code": "dsw",
+    "type": "bool"
   },
-  { "name": "Report Shani Team",
-    "code": "rst",
+  { "name": "Details",
+    "code": "ddsw",
+    "type": "text",
+    "rows":2,
+    "cols":20,
+    "resize": "auto",
+    "size": 20,
+    "maxSize": 200,
+    "required": "true"
+  },
+  { "name": "Intake System Problems",
+  "code": "iswd",
+  "type": "bool"
+  },
+  { "name": "Details",
+    "code": "disw",
+    "type": "text",
+    "rows":2,
+    "cols":20,
+    "resize": "auto",
+    "size": 20,
+    "maxSize": 200,
+    "required": "true"
+  },
+  { "name": "Output System Problems",
+  "code": "osw",
+  "type": "bool"
+  },
+  { "name": "Details",
+    "code": "dosw",
     "type": "text",
     "rows":2,
     "cols":20,
@@ -257,5 +283,5 @@ var config_data = `
     "maxSize": 200,
     "required": "true"
   }
- ]
+]
 }`
