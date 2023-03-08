@@ -27,7 +27,7 @@ html, body{
     border-color: #f0912b;
 }
 
-#auton_table, #endgame_table, #teleop_table, #teleop_table1, #teleop_table2 {
+#auton_table, #endgame_table, #teleop_table, #secondaryforce_table {
     font-family : -apple-system, BlinkMacSystemFont, Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif !important;
     color: white;
     font-size: 13px;
@@ -42,7 +42,7 @@ html, body{
     font-size: 16px;
 }
 
-#autonHeader, #endgameHeader, #teleopHeader1, #teleopHeader2, #teleopHeader11, #teleopHeader21, #teleopHeader12, #teleopHeader22 {
+#autonHeader, #endgameHeader, #teleopHeader1, #teleopHeader2, #secondaryforceHeader {
     color: white;
     border-color: #f0912b;
     border-width: 4px;

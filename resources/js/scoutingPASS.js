@@ -719,6 +719,14 @@ function configure() {
     idx = addElement(pmt, idx, element);
   });
 
+// Configure secondaryforce screen
+var sfc = mydata.secondaryforce;
+var sft = document.getElementById("secondaryforce_table");
+idx = 0;
+sfc.forEach(element => {
+  idx = addElement(sft, idx, element);
+});
+
   if (!enableGoogleSheets) {
     document.getElementById("submit").style.display = "none";
   }
@@ -947,7 +955,7 @@ function clearForm() {
   var match = 0;
   var e = 0;
 
-  swipePage(-5)
+  swipePage(-6)
 
   // Increment match
   match = parseInt(document.getElementById("input_m").value)
@@ -1071,6 +1079,7 @@ function swipePage(increment){
       document.getElementById("teleopHeader2").innerHTML = "Teleop " + "Team: " + document.getElementById("input_t").value;
       document.getElementById("endgameHeader2").innerHTML = "Endgame " + "Team: " + document.getElementById("input_t").value;
       document.getElementById("postmatchHeader2").innerHTML = "Post Match " + "Team: " + document.getElementById("input_t").value;
+      document.getElementById("secondaryforceHeader2").innerHTML = "Report Shanie " + "Team: " + document.getElementById("input_t").value;
       document.getElementById('data').innerHTML = "";
       document.getElementById('copyButton').setAttribute('value', 'Copy Data');
     }
