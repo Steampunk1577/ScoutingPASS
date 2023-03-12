@@ -4,7 +4,6 @@
 
 document.addEventListener("touchstart", startTouch, false);
 document.addEventListener("touchend", moveTouch, false);
-
 // Swipe Up / Down / Left / Right
 var initialX = null;
 var xThreshold = 0.3;
@@ -22,7 +21,9 @@ var options = {
 // Must be filled in: e=event, m=match#, l=level(q,qf,sf,f), t=team#, r=robot(r1,r2,b1..), s=scouter
 //var requiredFields = ["e", "m", "l", "t", "r", "s", "as"];
 var requiredFields = ["e", "m", "l", "r", "s", "as"];
-
+function clickStart() {
+  Document.getElementByIs("start_tct").click();
+}
 function addTimer(table, idx, name, data) {
   var row = table.insertRow(idx);
   var cell1 = row.insertCell(0);
@@ -1065,8 +1066,16 @@ function moveTouch(e) {
   }
   initialX = null;
 };
-
+pageNum = 0;
 function swipePage(increment){
+  if(increment > 0){
+    pageNum = pageNum+1
+  } else{
+    pagenum = pageNum-1
+  }
+  if(pageNum == 2) {
+    startFirstTimer();
+  }
   if (qr_regenerate() == true) {
     slides = document.getElementById("main-panel-holder").children
     if (slide + increment < slides.length && slide + increment >= 0) {
@@ -1343,6 +1352,14 @@ function undoCycle(event) {
   let d = document.getElementById("display" + uId);
   d.value = cycleInput.value.replace(/\"/g,'').replace(/\[/g, '').replace(/\]/g, '').replace(/,/g, ', ');
 }
+
+
+async function startFirstTimer(){
+  document.getElementById("start_tct").click();
+}
+
+
+
 
 function resetTimer(event) {
   let timerID = event.firstChild;

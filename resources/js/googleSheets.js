@@ -1,26 +1,21 @@
-function setUpGoogleSheets() {
-    const scriptURL = '<SCRIPT URL>'
-    const form = document.querySelector('#scoutingForm')
-    const btn = document.querySelector('#submit')
- 
-    
-    form.addEventListener('submit', e => {
-      e.preventDefault()
-      btn.disabled = true
-      btn.innerHTML = "Sending..."
+function SendDataToGoogleSheets() {
+    const scriptURL = 'https://script.google.com/macros/s/AKfycbzwCwgT9NV4DtS-fTO0OzZic-RporuEpYeaIrDJYmD3c1wH0VwvpUL8fFVLXz3l7zqT/exec'
 
-      let fd = getData(false)
-      for (const [key, value] of fd) {
-        console.log(`${key}: ${value}\n`);
-      }
+    let fd = getData(false)
+    const now = new Date();
+    const hours = now.getHours();
+    const minutes = now.getMinutes();
+    const Time = (hours+ ":"+minutes);
+  console.log(Time)
+  fd.append("Hour", Time);
 
-      fetch(scriptURL, { method: 'POST', mode: 'no-cors', body: fd })
-        .then(response => { 
-              alert('Success!', response) })
-        .catch(error => {
-              alert('Error!', error.message)})
+    for (const [key, value] of fd) {
+      console.log(`${key}: ${value}\n`);
+    }
 
-      btn.disabled = false
-      btn.innerHTML = "Send to Google Sheets"
-    })
+    fetch(scriptURL, { method: 'POST', mode: 'no-cors', body: fd })
+      // .then(response => { 
+            // alert('Success!', response) })
+      // .catch(error => {
+            // alert('Error!', error.message)})
 }
