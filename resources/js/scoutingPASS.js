@@ -952,6 +952,7 @@ function qr_clear() {
 }
 
 function clearForm() {
+  pageNum = 0;
   var match = 0;
   var e = 0;
 
