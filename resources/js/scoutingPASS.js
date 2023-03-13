@@ -1,7 +1,6 @@
 // ScoutingPASS.js
 //
 // The guts of the ScountingPASS application
-
 document.addEventListener("touchstart", startTouch, false);
 document.addEventListener("touchend", moveTouch, false);
 // Swipe Up / Down / Left / Right
@@ -1075,6 +1074,10 @@ function swipePage(increment){
   }
   if(pageNum == 2) {
     startFirstTimer();
+  }
+  if(pageNum == 6){
+    SendDataToGoogleSheets();
+
   }
   if (qr_regenerate() == true) {
     slides = document.getElementById("main-panel-holder").children
