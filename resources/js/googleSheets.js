@@ -1,5 +1,5 @@
 function SendDataToGoogleSheets() {
-    const scriptURL = 'https://script.google.com/macros/s/AKfycbzwCwgT9NV4DtS-fTO0OzZic-RporuEpYeaIrDJYmD3c1wH0VwvpUL8fFVLXz3l7zqT/exec'
+    const scriptURL = 'https://script.google.com/macros/s/AKfycby_J-BbkVwxwH0-7fNHyblMSLLKTKxCSMF7tsJvqNAhxCNnRTrZrrzCuSohaMXHJVmADQ/exec'
 
     let fd = getData(false)
     const now = new Date();
