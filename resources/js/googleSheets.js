@@ -14,8 +14,8 @@ function SendDataToGoogleSheets() {
     }
 
     fetch(scriptURL, { method: 'POST', mode: 'no-cors', body: fd })
-      // .then(response => { 
-            // alert('Success!', response) })
-      // .catch(error => {
-            // alert('Error!', error.message)})
+       .then(response => { 
+            alert('Success!', "Sended") })
+      .catch(error => {
+            alert('Error!', error.message)})
 }
