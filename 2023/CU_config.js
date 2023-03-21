@@ -14,7 +14,7 @@ var config_data = `
   { "name": "Event",
     "code": "e",
     "type": "event",
-    "defaultValue": "2023isde3",
+    "defaultValue": "2023iscmp",
     "required": "true",
     "disabled": "true"
   },
