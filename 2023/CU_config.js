@@ -57,10 +57,13 @@ var config_data = `
   },
   { "name": "Auto Start Position",
     "code": "as",
-    "type": "clickable_image",
-    "filename": "2023/field_image.png",
-    "clickRestriction": "one",
-    "shape": "circle 5 black red true"
+    "type": "level",
+    "choices": {
+      "m": "Mid<br>",
+      "c": "Cable<br>",
+      "nc": "No Cable"
+  },
+  "defaultValue": "m"
   }
 ],
 "auton": [
@@ -75,16 +78,16 @@ var config_data = `
       "showUndo": "false",
       "shape": "circle 12 black red true"
   },
-  { "name": "Lost A Game Piece",
-    "code": "lagp",
+  { "name": "Pick Up Game Pices",
+    "code": "pugp",
     "type": "counter"
-  },
-  { "name": "Pass A Game Piece",
-  "code": "pagp",
-  "type": "counter"
   },
   { "name": "Left The Community Zone",
   "code": "ltcz",
+  "type": "bool"
+  },
+  { "name": "Try To Engage",
+  "code": "atte",
   "type": "bool"
   },
   { "name": "Docked",
@@ -142,6 +145,10 @@ var config_data = `
     "code": "dt",
     "type": "timer"
   },
+  { "name": "Try To Engage",
+  "code": "tte",
+  "type": "bool"
+  },
   { "name": "Final Status",
     "code": "fs",
     "type":"radio",
@@ -152,16 +159,6 @@ var config_data = `
       "e": "Engaged"
     }, 
     "defaultValue": "n/a"
-  }, 
-  { "name": "Succeed Or Failed",
-  "code": "sof",
-  "type":"radio",
-  "choices": {
-    "n/a": "Not Attempted<br>",
-    "s": "Succeed<br>",
-    "f": "Failed"
-  }, 
-  "defaultValue": "n/a"
   }, 
   { "name": "Alliance Bots Docked",
     "code": "abde",
