@@ -87,19 +87,16 @@ var config_data = `
   "code": "ltcz",
   "type": "bool"
   },
-  { "name": "Try To Engage",
-  "code": "atte",
-  "type": "bool"
-  },
   { "name": "Charging Station Result",
     "code": "ad",
     "type":"radio",
     "choices": {
+      "n/a": "Not attempted<br>",
       "d": "Docked (Not Engaged)<br>",
       "e": "Engaged<br>",
-      "n/a": "None"
+      "a": "Attempted But Failed"
     },
-    "defaultValue": "n/a"
+    "required": "true"
   }
 ],
 "teleop": [
@@ -136,7 +133,7 @@ var config_data = `
     "g": "Ground<br>",
     "t": "Substation<br>",
     "fs": "Feeder Slide<br>",
-    "b": "Both(Feeder & Ground)"
+    "b": "Both (Feeder & Ground)"
   },
   "defaultValue": "n/a"
   }
