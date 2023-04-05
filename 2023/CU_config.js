@@ -97,9 +97,9 @@ var config_data = `
     "choices": {
       "d": "Docked (Not Engaged)<br>",
       "e": "Engaged<br>",
-      "n": "None"
+      "n/a": "None"
     },
-    "defaultValue": "n"
+    "defaultValue": "n/a"
   }
 ],
 "teleop": [
@@ -136,7 +136,7 @@ var config_data = `
     "g": "Ground<br>",
     "t": "Substation<br>",
     "fs": "Feeder Slide<br>",
-    "a": "All"
+    "b": "All"
   },
   "defaultValue": "n/a"
   }
@@ -154,12 +154,12 @@ var config_data = `
     "code": "fs",
     "type":"radio",
     "choices": {
-      "n": "None<br>",
+      "n/a": "None<br>",
       "p": "Parked<br>",
       "d": "Docked<br>",
       "e": "Engaged"
     }, 
-    "defaultValue": "n"
+    "defaultValue": "n/a"
   }, 
   { "name": "Alliance Bots Docked",
     "code": "abde",
