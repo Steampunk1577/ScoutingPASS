@@ -136,7 +136,7 @@ var config_data = `
     "g": "Ground<br>",
     "t": "Substation<br>",
     "fs": "Feeder Slide<br>",
-    "b": "All"
+    "b": "Both(Feeder & Ground)"
   },
   "defaultValue": "n/a"
   }
