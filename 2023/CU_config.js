@@ -61,9 +61,10 @@ var config_data = `
     "choices": {
       "m": "Mid<br>",
       "c": "Cable<br>",
-      "nc": "No Cable"
+      "nc": "No Cable<br>",
+      "nof": "Not On Field"
   },
-  "defaultValue": "m"
+  "required": "true"
   }
 ],
 "auton": [
@@ -90,16 +91,15 @@ var config_data = `
   "code": "atte",
   "type": "bool"
   },
-  { "name": "Docked",
+  { "name": "Charging Station Result",
     "code": "ad",
     "type":"radio",
     "choices": {
-      "n/a": "Not attempted<br>",
       "d": "Docked (Not Engaged)<br>",
       "e": "Engaged<br>",
-      "a": "Attempted But Failed"
+      "n": "None"
     },
-    "defaultValue": "n/a"
+    "defaultValue": "n"
   }
 ],
 "teleop": [
@@ -135,7 +135,8 @@ var config_data = `
     "n/a": "Not Attempted<br>",
     "g": "Ground<br>",
     "t": "Substation<br>",
-    "b": "Both"
+    "fs": "Feeder Slide<br>",
+    "a": "All"
   },
   "defaultValue": "n/a"
   }
@@ -153,12 +154,12 @@ var config_data = `
     "code": "fs",
     "type":"radio",
     "choices": {
-      "n/a": "Not Attempted<br>",
+      "n": "None<br>",
       "p": "Parked<br>",
       "d": "Docked<br>",
       "e": "Engaged"
     }, 
-    "defaultValue": "n/a"
+    "defaultValue": "n"
   }, 
   { "name": "Alliance Bots Docked",
     "code": "abde",
