@@ -992,8 +992,9 @@ function clearForm() {
         e.checked = false
         document.getElementById("display_" + baseCode).value = ""
       }
-      var defaultValue = document.getElementById("default_" + baseCode).value
-      if (defaultValue != "") {
+      var defaultValue = document.getElementById("default_" + baseCode)
+      if (defaultValue != null) {
+        defaultValue = defaultValue.value;
         if (defaultValue == e.value) {
           e.checked = true
           document.getElementById("display_" + baseCode).value = defaultValue
@@ -1061,7 +1062,7 @@ function moveTouch(e) {
 };
 
 function swipePage(increment){
-  if (increment != -lastPageNum && !validateData())
+  if (pageNum != lastPageNum && !validateData())
     return;
 
   pageNum += increment;
