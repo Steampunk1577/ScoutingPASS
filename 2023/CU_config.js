@@ -53,7 +53,8 @@ var config_data = `
     "code": "t",
     "type": "team",
     "min": 1,
-    "max": 99999
+    "max": 99999,
+    "required": "true"
   },
   { "name": "Auto Start Position",
     "code": "as",
@@ -79,7 +80,7 @@ var config_data = `
       "showUndo": "false",
       "shape": "circle 12 black red true"
   },
-  { "name": "Pick Up Game Pices",
+  { "name": "Pick Up Game Pieces",
     "code": "pugp",
     "type": "counter"
   },
@@ -247,8 +248,7 @@ var config_data = `
     "cols":20,
     "resize": "auto",
     "size": 20,
-    "maxSize": 200,
-    "required": "true"
+    "maxSize": 200
   },
   { "name": "Intake System Problems",
   "code": "iswd",
@@ -261,8 +261,7 @@ var config_data = `
     "cols":20,
     "resize": "auto",
     "size": 20,
-    "maxSize": 200,
-    "required": "true"
+    "maxSize": 200
   },
   { "name": "Output System Problems",
   "code": "osw",
@@ -275,8 +274,7 @@ var config_data = `
     "cols":20,
     "resize": "auto",
     "size": 20,
-    "maxSize": 200,
-    "required": "true"
+    "maxSize": 200
   }
 ]
 }`

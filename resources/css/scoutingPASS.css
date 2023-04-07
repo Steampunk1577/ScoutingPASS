@@ -164,8 +164,8 @@ h2{
     display: flex;
 }
 
-#nextButton1, #nextButton2, #nextButton9, #nextButton10, .clearForm, .submitForm, #displayButton, #copyButton {
-    font-family: Alexis; 
+.clearForm, .submitForm, #displayButton, #copyButton {
+    font-family: Alexis;
     padding: 10px;
     background-color: #97c7f0;
     color: black;
@@ -173,34 +173,28 @@ h2{
     display: inline-block;
 }
 
-#nextButton3, #nextButton4, #nextButton5, #nextButton6, #nextButton7, #nextButton8 {
+#nextButton1, #nextButton2, #nextButton3, #nextButton4, #nextButton5, #nextButton6, #nextButton7, #nextButton8, #nextButton9, #nextButton10, #nextButton11, #nextButton12 {
     font-family: Alexis;
-    background-color: #97c7f0; 
+    background-color: #97c7f0;
     padding: 10px;
     color: black;
+    display: inline-block;
 }
 
 .undoButton, .flipButton {
     font-family: Alexis;
-    background-color: black; 
+    background-color: black;
     padding: 10px;
     color: white;
     margin-left: 20px;
 }
 
-#prevButton7, #prevButton8, #prevButton9{
+#prevButton1, #prevButton2, #prevButton3, #prevButton4, #prevButton5, #prevButton6, #prevButton7, #prevButton8, #prevButton9, #prevButton10, #prevButton11 {
     font-family: Alexis;
-    background-color: #97c7f0; 
+    background-color: #97c7f0;
     color: black;
     padding: 10px;
-}
-
-#prevButton1, #prevButton2, #prevButton3, #prevButton4, #prevButton5, #prevButton6{
-    font-family: Alexis;
-    background-color: #97c7f0; 
-    padding: 10px;
-    color: black;
-    
+    display: inline-block;
 }
 
 #prematch_table{

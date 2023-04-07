@@ -9,6 +9,10 @@ var xThreshold = 0.3;
 var slide = 0;
 var enableGoogleSheets = false;
 var checkboxAs = 'YN';
+var pageNum = 0;
+var lastPageNum = 6;
+// Must be filled in fields, e.g, e=event, m=match#, l=level(q,qf,sf,f), t=team#, r=robot(r1,r2,b1..), s=scouter
+var requiredFields = [];
 
 // Options
 var options = {
@@ -17,9 +21,6 @@ var options = {
   quietZoneColor: '#FFFFFF'
 };
 
-// Must be filled in: e=event, m=match#, l=level(q,qf,sf,f), t=team#, r=robot(r1,r2,b1..), s=scouter
-//var requiredFields = ["e", "m", "l", "t", "r", "s", "as"];
-var requiredFields = ["e", "m", "l", "r", "s"];
 function clickStart() {
   Document.getElementByIs("start_tct").click();
 }
@@ -679,53 +680,22 @@ function configure() {
     }
   }
 
-  // Configure prematch screen
-  var pmc = mydata.prematch;
-  var pmt = document.getElementById("prematch_table");
-  var idx = 0;
-  pmc.forEach(element => {
-    idx = addElement(pmt, idx, element);
-  });
-
-  // Configure auton screen
-  var ac = mydata.auton;
-  var at = document.getElementById("auton_table");
-  idx = 0;
-  ac.forEach(element => {
-    idx = addElement(at, idx, element);
-  });
-
-  // Configure teleop screen
-  var tc = mydata.teleop;
-  var tt = document.getElementById("teleop_table");
-  idx = 0;
-  tc.forEach(element => {
-    idx = addElement(tt, idx, element);
-  });
-
-  // Configure endgame screen
-  var egc = mydata.endgame;
-  var egt = document.getElementById("endgame_table");
-  idx = 0;
-  egc.forEach(element => {
-    idx = addElement(egt, idx, element);
-  });
-
-  // Configure postmatch screen
-  pmc = mydata.postmatch;
-  pmt = document.getElementById("postmatch_table");
-  var idx = 0;
-  pmc.forEach(element => {
-    idx = addElement(pmt, idx, element);
-  });
-
-// Configure secondaryforce screen
-var sfc = mydata.secondaryforce;
-var sft = document.getElementById("secondaryforce_table");
-idx = 0;
-sfc.forEach(element => {
-  idx = addElement(sft, idx, element);
-});
+  // setting up all pages
+  for (var key of Object.keys(mydata)) {
+      var pageObject = mydata[key];
+      if (Array.isArray(pageObject)) {
+          var table = document.getElementById(key + "_table");
+          requiredFields.push({});
+          var idx = 0;
+          pageObject.forEach(element => {
+            idx = addElement(table, idx, element);
+            // adding element as required field if necessary
+            if (element.hasOwnProperty("required") && element.required == "true") {
+                requiredFields.at(-1)[element.code] = element.name;
+            }
+          });
+      }
+  }
 
   if (!enableGoogleSheets) {
     document.getElementById("submit").style.display = "none";
@@ -811,35 +781,65 @@ function validateLevel() {
     return false
   }
 }
+function isRadioButton(code) {
+  inputs = document.querySelectorAll("[id*='input_" + code + "']");
+  for (e of inputs) {
+    if (e.name == code)
+    {
+        return e.type == "radio";
+    }
+  }
+  return false;
+}
+
+function validateRadio(code) {
+  inputs = document.querySelectorAll("[id*='input_" + code + "']");
+  for (e of inputs) {
+      if (e.name == code && (e.type != "radio" || e.checked))
+      {
+        return true;
+      }
+  }
+  return false;
+}
 
 function validateData() {
   var ret = true
   var errStr = "Bad fields: ";
-  for (rf of requiredFields) {
+  for ([rf, rfName] of Object.entries(requiredFields[pageNum]) ) {
     // Robot requires special (radio) validation
     if (rf == "r") {
       if (!validateRobot()) {
-        errStr += rf + " "
+        errStr += rfName + "; "
         ret = false
       }
-    } else if (rf == "l") {
+    }
+    else if (rf == "l") {
       if (!validateLevel()) {
-        errStr += rf + " "
+        errStr += rfName + "; "
         ret = false
       }
+    }
+    else if (isRadioButton(rf)) {
+        if (!validateRadio(rf)) {
+            errStr += rfName + "; ";
+            ret = false;
+        }
+        continue;
+    }
       // Normal validation (length <> 0)
-    } else if (document.getElementById("input_" + rf).value == "[]") {
-        errStr += rf + " ";
+     else if (document.getElementById("input_" + rf).value == "[]") {
+        errStr += rfName + "; ";
         ret = false;
     } else if (document.getElementById("input_" + rf).value.length == 0) {
-      errStr += rf + " "
+      errStr += rfName + "; "
       ret = false
     }
   }
   if (ret == false) {
     alert("Enter all required values\n" + errStr);
   }
-  return ret
+  return ret;
 }
 
 function getData(useStr) {
@@ -931,12 +931,6 @@ function updateQRHeader() {
 
 
 function qr_regenerate() {
-  // Validate required pre-match date (event, match, level, robot, scouter)
-  if (validateData() == false) {
-    // Don't allow a swipe until all required data is filled in
-    return false
-  }
-
   // Get data
   data = getData(true)
 
@@ -952,11 +946,10 @@ function qr_clear() {
 }
 
 function clearForm() {
-  pageNum = 0;
   var match = 0;
   var e = 0;
 
-  swipePage(-6)
+  swipePage(-lastPageNum)
 
   // Increment match
   match = parseInt(document.getElementById("input_m").value)
@@ -1066,19 +1059,17 @@ function moveTouch(e) {
   }
   initialX = null;
 };
-pageNum = 0;
+
 function swipePage(increment){
-  if(increment > 0){
-    pageNum = pageNum+1
-  } else{
-    pagenum = pageNum-1
-  }
+  if (increment != -lastPageNum && !validateData())
+    return;
+
+  pageNum += increment;
   if(pageNum == 2) {
     startFirstTimer();
   }
-  if(pageNum == 6){
+  if(pageNum == lastPageNum){
     SendDataToGoogleSheets();
-
   }
   if (qr_regenerate() == true) {
     slides = document.getElementById("main-panel-holder").children
