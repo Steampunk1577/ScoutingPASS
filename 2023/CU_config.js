@@ -137,6 +137,10 @@ var config_data = `
     "b": "Both (Feeder & Ground)"
   },
   "defaultValue": "n/a"
+  },
+  { "name": "Supercharged Pieces",
+  "code": "sc",
+  "type": "counter"
   }
 ],
 "endgame": [
