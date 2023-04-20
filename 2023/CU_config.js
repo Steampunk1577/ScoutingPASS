@@ -8,13 +8,13 @@ var config_data = `
     "code": "s",
     "type": "scouter",
     "size": 5,
-    "maxSize": 15,
+    "maxSize": 50,
     "required": "true"
   },
   { "name": "Event",
     "code": "e",
     "type": "event",
-    "defaultValue": "2023iscmp",
+    "defaultValue": "2023arc",
     "required": "true",
     "disabled": "true"
   },
