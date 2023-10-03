@@ -14,7 +14,7 @@ var config_data = `
   { "name": "Event",
     "code": "e",
     "type": "event",
-    "defaultValue": "2023arc",
+    "defaultValue": "2023isios",
     "required": "true",
     "disabled": "true"
   },
@@ -61,8 +61,8 @@ var config_data = `
     "type": "level",
     "choices": {
       "m": "Mid<br>",
-      "c": "Cable<br>",
-      "nc": "No Cable<br>",
+      "c": "Near The Wall<br>",
+      "nc": "Near The Other Fedder<br>",
       "nof": "Not On Field"
   },
   "required": "true"
@@ -134,7 +134,7 @@ var config_data = `
     "g": "Ground<br>",
     "t": "Substation<br>",
     "fs": "Feeder Slide<br>",
-    "b": "Both (Feeder & Ground)"
+    "b": "More Then 1 Way"
   },
   "defaultValue": "n/a"
   },
