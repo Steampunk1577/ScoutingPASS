@@ -319,6 +319,17 @@ function addClickableImage(table, idx, name, data) {
 
   inp = document.createElement('input');
   inp.setAttribute("hidden", "");
+  inp.setAttribute("id", "allowableResponses_" + data.code);
+  inp.setAttribute("value", "none");
+  if (data.hasOwnProperty('allowableResponses')) {
+    let responses = data.allowableResponses.split(' ').map(Number)
+    console.log(responses)
+      inp.setAttribute("value", responses);
+  }
+  cell.appendChild(inp);
+
+  inp = document.createElement('input');
+  inp.setAttribute("hidden", "");
   inp.setAttribute("id", "shape_" + data.code);
   // Default shape: white circle of size 5 not filled in
   inp.setAttribute("value", "circle 5 white white true");
@@ -1154,6 +1165,14 @@ function onFieldClick(event) {
   let box = ((Math.ceil(event.offsetY / target.height * resY) - 1) * resX) + Math.ceil(event.offsetX / target.width * resX);
   let coords = event.offsetX + "," + event.offsetY;
 
+  let allowableResponses = document.getElementById("allowableResponses" + base).value;
+
+  if(allowableResponses != "none"){
+    allowableResponsesList = allowableResponses.split(',').map(Number);
+    if (allowableResponsesList.indexOf(box)==-1){
+      return;
+    }
+  }
 
   //Cumulating values
   let changingXY = document.getElementById("XY" + base);
