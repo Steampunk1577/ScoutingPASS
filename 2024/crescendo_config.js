@@ -66,7 +66,7 @@ var config_data = `
 ],
 "auton": [
   { "name": "Middle Pickup Timer",
-  "code": "ast",
+  "code": "mpt",
   "type": "timer"
   },
   { "name": "Which Middle Note",
@@ -89,16 +89,16 @@ var config_data = `
   "code": "ctl",
   "type": "bool"
   },
-  { "name": "Pick Up Game Pieces",
-    "code": "pugp",
+  { "name": "Pickup Note",
+    "code": "apn",
     "type": "counter"
   },
-  { "name": "Scored Game Pieces",
-  "code": "sgp",
+  { "name": "Scored Note",
+  "code": "sn",
   "type": "counter"
   },
-  { "name": "Missed Game Pieces",
-  "code": "mgp",
+  { "name": "Missed Note",
+  "code": "mn",
   "type": "counter"
   }
 ],
@@ -107,51 +107,49 @@ var config_data = `
       "code": "tct",
       "type": "cycle"
   },
-  { "name": "Grid Scoring",
-      "code": "tsg",
-      "gsCol": "gridScoring",
+  { "name": "Scoring Position Speaker",
+      "code": "tsp",
       "type": "clickable_image",
-      "filename": "2023/grid_image.png",
+      "filename": "2024/field_image.png",
       "dimensions": "9 4",
-      "clickRestriction": "onePerBox",
-      "toggleClick": "true",
-      "showFlip": "false",
-      "showUndo": "false",
-      "shape": "circle 12 black red true",
+      "shape": "circle 5 black red true",
       "cycleTimer": "tct"
   },
-  { "name": "Lost Game Pieces",
-      "code": "ls",
+  { "name": "Score AMP",
+      "code": "sa",
       "type": "counter"
   },
-  { "name": "Pass Game Pieces",
-      "code": "pgp",
+  { "name": "Missed Note Speaker",
+      "code": "mns",
+      "type": "counter"
+  },
+  { "name": "Missed Note AMP",
+      "code": "mna",
+      "type": "counter"
+  },
+  { "name": "Pass Note",
+      "code": "pn",
       "type": "counter"
   },
   { "name": "Intake",
-  "code": "ci",
+  "code": "i",
   "type": "radio",
   "choices": {
     "n/a": "Not Attempted<br>",
     "g": "Ground<br>",
-    "t": "Substation<br>",
-    "fs": "Feeder Slide<br>",
-    "b": "More Then 1 Way"
+    "s": "Source<br>",
+    "b": "Both"
   },
   "defaultValue": "n/a"
-  },
-  { "name": "Supercharged Pieces",
-  "code": "sc",
-  "type": "counter"
   }
 ],
 "endgame": [
-  { "name": "Docking Timer",
-    "code": "dt",
+  { "name": "Climbing Timer",
+    "code": "ct",
     "type": "timer"
   },
-  { "name": "Try To Engage",
-  "code": "tte",
+  { "name": "Tried To Climb",
+  "code": "ttc",
   "type": "bool"
   },
   { "name": "Final Status",
@@ -160,23 +158,29 @@ var config_data = `
     "choices": {
       "n/a": "None<br>",
       "p": "Parked<br>",
-      "d": "Docked<br>",
-      "e": "Engaged"
+      "c": "Climbed"
     }, 
     "defaultValue": "n/a"
   }, 
-  { "name": "Alliance Bots Docked",
-    "code": "abde",
-    "type":"radio",
-    "choices": {
-      "0": "0<br>",
-      "1": "1<br>",
-      "2": "2<br>",
-      "3": "3"
-  }, 
-  "defaultValue": "0"
+{ "name": "Climb With Another Bot",
+  "code": "cwab",
+  "type":"radio",
+  "choices": {
+    "1": "+1<br>",
+    "2": "+2"
   }
-],
+},
+  { "name": "Trap",
+  "code": "ts",
+  "type":"radio",
+  "choices": {
+    "n/a": "Did Not Try<br>",
+    "tns": "Tried And Did Not Score<br>",
+    "tas": "Tried And Scored"
+  }, 
+  "defaultValue": "n/a"
+  }
+  ],
 "postmatch": [
   { "name": "Driver Skill",
     "code": "ds",
@@ -228,8 +232,12 @@ var config_data = `
     },
     "defaultValue":"dngac"
   },
-  { "name": "Organized The Grid",
-    "code": "otg",
+  { "name": "Disabled",
+  "code": "d",
+  "type": "bool"
+},
+  { "name": "Swerve",
+    "code": "sw",
     "type": "bool"
   },
   { "name": "Comments",
@@ -243,12 +251,12 @@ var config_data = `
   }
 ],
 "secondaryforce": [
-  { "name": "Drive System Problems (Disabled)",
-    "code": "dsw",
+  { "name": "Drive System Problems",
+    "code": "dsp",
     "type": "bool"
   },
   { "name": "Details",
-    "code": "ddsw",
+    "code": "ddsp",
     "type": "text",
     "rows":2,
     "cols":20,
@@ -257,11 +265,11 @@ var config_data = `
     "maxSize": 200
   },
   { "name": "Intake System Problems",
-  "code": "iswd",
+  "code": "isp",
   "type": "bool"
   },
   { "name": "Details",
-    "code": "disw",
+    "code": "disp",
     "type": "text",
     "rows":2,
     "cols":20,
@@ -270,11 +278,11 @@ var config_data = `
     "maxSize": 200
   },
   { "name": "Output System Problems",
-  "code": "osw",
+  "code": "osp",
   "type": "bool"
   },
   { "name": "Details",
-    "code": "dosw",
+    "code": "dosp",
     "type": "text",
     "rows":2,
     "cols":20,
