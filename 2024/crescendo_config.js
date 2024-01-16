@@ -93,12 +93,16 @@ var config_data = `
     "code": "apn",
     "type": "counter"
   },
-  { "name": "Scored Note",
-  "code": "sn",
-  "type": "counter"
-  },
   { "name": "Missed Note",
   "code": "mn",
+  "type": "counter"
+  },
+  { "name": "Scored Note AMP",
+  "code": "sna",
+  "type": "counter"
+  },
+  { "name": "Missed Note AMP",
+  "code": "sn",
   "type": "counter"
   }
 ],
