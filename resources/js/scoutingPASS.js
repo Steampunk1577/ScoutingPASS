@@ -1095,7 +1095,7 @@ function swipePage(increment){
       document.getElementById("teleopHeader2").innerHTML = "Teleop " + "Team: " + document.getElementById("input_t").value;
       document.getElementById("endgameHeader2").innerHTML = "Endgame " + "Team: " + document.getElementById("input_t").value;
       document.getElementById("postmatchHeader2").innerHTML = "Post Match " + "Team: " + document.getElementById("input_t").value;
-      document.getElementById("secondaryforceHeader2").innerHTML = "Report Shanie " + "Team: " + document.getElementById("input_t").value;
+      document.getElementById("secondaryforceHeader2").innerHTML = "Report Shani " + "Team: " + document.getElementById("input_t").value;
       document.getElementById('data').innerHTML = "";
       document.getElementById('copyButton').setAttribute('value', 'Copy Data');
     }

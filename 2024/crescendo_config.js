@@ -293,6 +293,28 @@ var config_data = `
     "resize": "auto",
     "size": 20,
     "maxSize": 200
-  }
+  },
+  { "name": "Climbing System Problems",
+  "code": "csp",
+  "type": "bool"
+  },
+  { "name": "Details",
+    "code": "dcsp",
+    "type": "text",
+    "rows":2,
+    "cols":20,
+    "resize": "auto",
+    "size": 20,
+    "maxSize": 200
+  },
+  { "name": "Other Problems",
+  "code": "op",
+  "type": "text",
+  "rows":2,
+  "cols":20,
+  "resize": "auto",
+  "size": 20,
+  "maxSize": 200
+}
 ]
 }`
