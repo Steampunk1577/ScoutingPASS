@@ -1091,7 +1091,7 @@ function swipePage(increment){
       window.scrollTo(0, 0);
       slides[slide].style.display = "table";
       document.getElementById("qrHeader2").innerHTML = "Match: " + getCurrentMatchKey() + " Team: " + document.getElementById("input_t").value;
-      document.getElementById("autonHeader2").innerHTML = "Auton " + "Team: " + document.getElementById("input_t").value;
+      document.getElementById("autonHeader2").innerHTML = "Auto " + "Team: " + document.getElementById("input_t").value;
       document.getElementById("teleopHeader2").innerHTML = "Teleop " + "Team: " + document.getElementById("input_t").value;
       document.getElementById("endgameHeader2").innerHTML = "Endgame " + "Team: " + document.getElementById("input_t").value;
       document.getElementById("postmatchHeader2").innerHTML = "Post Match " + "Team: " + document.getElementById("input_t").value;
