@@ -183,7 +183,7 @@ var config_data = `
       "code": "pt",
       "type": "counter"
   }
-  ],
+],
 "postmatch": [
   { "name": "Driver Skill",
     "code": "ds",
@@ -249,7 +249,7 @@ var config_data = `
   { "name": "Disabled",
   "code": "d",
   "type": "bool"
-},
+  },
   { "name": "Swerve",
     "code": "sw",
     "type": "bool"
