@@ -69,25 +69,17 @@ var config_data = `
   }
 ],
 "auton": [
-  { "name": "Middle Pickup Timer",
-  "code": "mpt",
-  "type": "timer"
-  },
-  { "name": "Which Middle Note",
-  "code": "wmn",
-  "type": "text",
-  "rows":2,
-  "cols":20,
-  "resize": "auto",
-  "size": 1,
-  "maxSize": 1
+  { "name": "Auto Pickup Timer",
+  "code": "apt",
+  "type": "autocycle"
   },
   { "name": "Pickup Order",
   "code": "po",
   "type": "clickable_image",
   "filename": "2024/field_image.png",
   "dimensions": "9 4",
-  "shape": "circle 5 black red true"
+  "shape": "circle 5 black red true",
+  "cycleTimer": "apt"
   },
   { "name": "Crossed The Line",
   "code": "ctl",
