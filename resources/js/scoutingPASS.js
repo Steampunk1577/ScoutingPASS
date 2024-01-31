@@ -24,6 +24,7 @@ var options = {
 function clickStart() {
   Document.getElementByIs("start_tct").click();
 }
+
 function addTimer(table, idx, name, data) {
   var row = table.insertRow(idx);
   var cell1 = row.insertCell(0);
@@ -500,46 +501,56 @@ function addText(table, idx, name, data) {
   var cell1 = row.insertCell(0);
   cell1.classList.add("title");
   if (!data.hasOwnProperty('code')) {
-    cell1.innerHTML = `Error: No code specified for ${name}`;
-    return idx + 1;
+      cell1.innerHTML = `Error: No code specified for ${name}`;
+      return idx + 1;
   }
   var cell2 = row.insertCell(1);
   cell1.innerHTML = name + '&nbsp;';
-  if (data.hasOwnProperty('tooltip')) {
-    cell1.setAttribute("title", data.tooltip);
-  }
   cell2.classList.add("field");
-  var inp = document.createElement("input");
+  if (data.hasOwnProperty('rows')) {
+      var inp = document.createElement("textarea");
+      inp.setAttribute("dir", "rtl");
+      if (data.hasOwnProperty('rows')) {
+          inp.setAttribute("rows", data.rows);
+      }
+      if (data.hasOwnProperty('cols')) {
+          inp.setAttribute("cols", data.cols);
+      }
+  }
+  else {
+      var inp = document.createElement("input");
+      if (data.hasOwnProperty('size')) {
+          inp.setAttribute("size", data.size);
+      }
+  }
+
   inp.setAttribute("id", "input_" + data.code);
   inp.setAttribute("type", "text");
-  if (enableGoogleSheets && data.hasOwnProperty('gsCol')) {
-    inp.setAttribute("name", data.gsCol);
-  } else {
-    inp.setAttribute("name", data.code);
+  inp.setAttribute("name", data.code);
+
+  if (data.hasOwnProperty('rows') && data.hasOwnProperty('cols')) {
+      inp.setAttribute("maxLength", data.cols * data.rows * 1000);
   }
-  if (data.hasOwnProperty('size')) {
-    inp.setAttribute("size", data.size);
-  }
-  if (data.hasOwnProperty('maxSize')) {
-    inp.setAttribute("maxLength", data.maxSize);
+  else if (data.hasOwnProperty('maxSize')) {
+      inp.setAttribute("maxLength", data.maxSize);
   }
   if (data.hasOwnProperty('defaultValue')) {
-    inp.setAttribute("value", data.defaultValue);
+      inp.setAttribute("value", data.defaultValue);
   }
   if (data.hasOwnProperty('required')) {
-    inp.setAttribute("required", "");
+      inp.setAttribute("required", "");
   }
   if (data.hasOwnProperty('disabled')) {
-    inp.setAttribute("disabled", "");
+      inp.setAttribute("disabled", "");
   }
   cell2.appendChild(inp);
 
   if (data.hasOwnProperty('defaultValue')) {
-    var def = document.createElement("input");
-    def.setAttribute("id", "default_" + data.code)
-    def.setAttribute("type", "hidden");
-    def.setAttribute("value", data.defaultValue);
-    cell2.appendChild(def);
+      var def = document.createElement("input");
+      def.setAttribute("id", "default_" + data.code)
+      def.setAttribute("type", "hidden");
+      def.setAttribute("value", data.defaultValue);
+      cell2.appendChild(def);
   }
 
   return idx + 1
@@ -889,7 +900,6 @@ function resetRobot() {
   }
 }
 
-
 function getLevel() {
   if (document.getElementById("input_l_qm").checked) {
     return "qm";
@@ -912,6 +922,7 @@ function validateLevel() {
     return false
   }
 }
+
 function isRadioButton(code) {
   inputs = document.querySelectorAll("[id*='input_" + code + "']");
   for (e of inputs) {

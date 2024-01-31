@@ -60,6 +60,7 @@ var config_data = `
   "code": "asp",
   "type": "radio",
   "choices": {
+    "n/a": "Not On Field<br>",
     "nta": "Near The AMP<br>",
     "nts": "Near The Speaker<br>",
     "ifot": "In Front Of The Stage<br>",
@@ -77,7 +78,6 @@ var config_data = `
   "code": "po",
   "type": "clickable_image",
   "filename": "2024/field_image.png",
-  "dimensions": "9 4",
   "shape": "circle 5 black red true",
   "cycleTimer": "apt"
   },
@@ -85,11 +85,11 @@ var config_data = `
   "code": "ctl",
   "type": "bool"
   },
-  { "name": "Scored Note",
+  { "name": "Scored Note Speaker",
     "code": "sn",
     "type": "counter"
   },
-  { "name": "Missed Note",
+  { "name": "Missed Note Speaker",
   "code": "mn",
   "type": "counter"
   },
@@ -120,7 +120,7 @@ var config_data = `
       "type": "clickable_image",
       "filename": "2024/field_image.png",
       "dimensions": "9 4",
-      "shape": "circle 5 black red true",
+      "shape": "circle 3 black red true",
       "cycleTimer": "tct"
   },
   { "name": "Missed Note Speaker",
@@ -232,9 +232,9 @@ var config_data = `
     "code": "fc",
     "type": "radio",
     "choices": {
+      "dngac": "Did Not Got A Card<br>",
       "yc": "Yellow Card<br>",
-      "rc": "Red Card<br>",
-      "dngac": "Did Not Got A Card"
+      "rc": "Red Card"
     },
     "defaultValue":"dngac"
   },
@@ -249,10 +249,8 @@ var config_data = `
   { "name": "Comments",
     "code": "co",
     "type": "text",
-    "rows":3,
+    "rows":5,
     "cols":20,
-    "size": 20,
-    "maxSize": 200,
     "required": "true"
   }
 ],
@@ -265,10 +263,7 @@ var config_data = `
     "code": "ddsp",
     "type": "text",
     "rows":2,
-    "cols":20,
-    "resize": "auto",
-    "size": 20,
-    "maxSize": 200
+    "cols":20
   },
   { "name": "Intake System Problems",
   "code": "isp",
@@ -278,10 +273,7 @@ var config_data = `
     "code": "disp",
     "type": "text",
     "rows":2,
-    "cols":20,
-    "resize": "auto",
-    "size": 20,
-    "maxSize": 200
+    "cols":20
   },
   { "name": "Output System Problems",
   "code": "osp",
@@ -291,10 +283,7 @@ var config_data = `
     "code": "dosp",
     "type": "text",
     "rows":2,
-    "cols":20,
-    "resize": "auto",
-    "size": 20,
-    "maxSize": 200
+    "cols":20
   },
   { "name": "Climbing System Problems",
   "code": "csp",
@@ -304,19 +293,13 @@ var config_data = `
     "code": "dcsp",
     "type": "text",
     "rows":2,
-    "cols":20,
-    "resize": "auto",
-    "size": 20,
-    "maxSize": 200
+    "cols":20
   },
   { "name": "Other Problems",
   "code": "op",
   "type": "text",
   "rows":2,
-  "cols":20,
-  "resize": "auto",
-  "size": 20,
-  "maxSize": 200
+  "cols":20
 }
 ]
 }`
