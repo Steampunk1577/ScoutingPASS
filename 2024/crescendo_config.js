@@ -58,10 +58,14 @@ var config_data = `
   },
   { "name": "Auto Start Position",
   "code": "asp",
-  "type": "clickable_image",
-  "filename": "2024/field_image.png",
-  "clickRestriction": "one",
-  "shape": "circle 5 black red true"
+  "type": "radio",
+  "choices": {
+    "nta": "Near The AMP<br>",
+    "nts": "Near The Speaker<br>",
+    "ifot": "In Front Of The Stage<br>",
+    "ntos": "Near The Opponent Source"
+  },
+  "required": "true"
   }
 ],
 "auton": [
@@ -78,8 +82,8 @@ var config_data = `
   "size": 1,
   "maxSize": 1
   },
-  { "name": "Auto Scoring Position",
-  "code": "as",
+  { "name": "Pickup Order",
+  "code": "po",
   "type": "clickable_image",
   "filename": "2024/field_image.png",
   "dimensions": "9 4",
@@ -89,8 +93,8 @@ var config_data = `
   "code": "ctl",
   "type": "bool"
   },
-  { "name": "Pickup Note",
-    "code": "apn",
+  { "name": "Scored Note",
+    "code": "sn",
     "type": "counter"
   },
   { "name": "Missed Note",
@@ -102,7 +106,15 @@ var config_data = `
   "type": "counter"
   },
   { "name": "Missed Note AMP",
-  "code": "sn",
+  "code": "mna",
+  "type": "counter"
+  },
+  { "name": "Scored Note Trap",
+  "code": "snt",
+  "type": "counter"
+  },
+  { "name": "Missed Note Trap",
+  "code": "mnt",
   "type": "counter"
   }
 ],
@@ -119,12 +131,12 @@ var config_data = `
       "shape": "circle 5 black red true",
       "cycleTimer": "tct"
   },
+  { "name": "Missed Note Speaker",
+  "code": "mns",
+  "type": "counter"
+  },
   { "name": "Score AMP",
       "code": "sa",
-      "type": "counter"
-  },
-  { "name": "Missed Note Speaker",
-      "code": "mns",
       "type": "counter"
   },
   { "name": "Missed Note AMP",
@@ -134,17 +146,6 @@ var config_data = `
   { "name": "Pass Note",
       "code": "pn",
       "type": "counter"
-  },
-  { "name": "Intake",
-  "code": "i",
-  "type": "radio",
-  "choices": {
-    "n/a": "Not Attempted<br>",
-    "g": "Ground<br>",
-    "s": "Source<br>",
-    "b": "Both"
-  },
-  "defaultValue": "n/a"
   }
 ],
 "endgame": [
@@ -166,23 +167,21 @@ var config_data = `
     }, 
     "defaultValue": "n/a"
   }, 
-{ "name": "Climb With Another Bot",
-  "code": "cwab",
-  "type":"radio",
-  "choices": {
-    "1": "+1<br>",
-    "2": "+2"
-  }
-},
-  { "name": "Trap",
-  "code": "ts",
-  "type":"radio",
-  "choices": {
-    "n/a": "Did Not Try<br>",
-    "tns": "Tried And Did Not Score<br>",
-    "tas": "Tried And Scored"
-  }, 
-  "defaultValue": "n/a"
+  { "name": "Climb With Another Bot",
+    "code": "cwab",
+    "type":"radio",
+    "choices": {
+      "1": "+1<br>",
+      "2": "+2"
+    }
+  },
+  { "name": "Tried To Place Traps",
+      "code": "ttpt",
+      "type": "counter"
+  },
+  { "name": "Placed Traps",
+      "code": "pt",
+      "type": "counter"
   }
   ],
 "postmatch": [
@@ -225,6 +224,17 @@ var config_data = `
       "n/a":"n/a"
     },
     "defaultValue":"n/a"
+  },
+  { "name": "Intake",
+  "code": "i",
+  "type": "radio",
+  "choices": {
+    "n/a": "Not Attempted<br>",
+    "g": "Ground<br>",
+    "s": "Source<br>",
+    "b": "Both"
+  },
+  "defaultValue": "n/a"
   },
   { "name": "Foul Card",
     "code": "fc",
