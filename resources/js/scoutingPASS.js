@@ -25,6 +25,10 @@ function clickStart() {
   Document.getElementByIs("start_tct").click();
 }
 
+function clickStart() {
+  Document.getElementByIs("start_act").click();
+}
+
 function addTimer(table, idx, name, data) {
   var row = table.insertRow(idx);
   var cell1 = row.insertCell(0);
@@ -104,6 +108,7 @@ function addTimer(table, idx, name, data) {
     button3.setAttribute("onclick", "newCycle(this.parentElement)");
     button3.setAttribute("value", "New Cycle");
     cell.appendChild(button3);
+
     var button4 = document.createElement("input");
     button4.setAttribute("id", "undo_" + data.code);
     button4.setAttribute("type", "button");
@@ -113,6 +118,124 @@ function addTimer(table, idx, name, data) {
     cell.appendChild(button4);
   }
 
+  idx += 1
+  row = table.insertRow(idx);
+  row.setAttribute("style", "display:none");
+  cell = row.insertCell(0);
+  cell.setAttribute("colspan", 2);
+  cell.setAttribute("style", "text-align: center;");
+  var inp = document.createElement('input');
+  inp.setAttribute("type", "hidden");
+  inp.setAttribute("id", "status_" + data.code);
+  inp.setAttribute("value", "stopped");
+  cell.appendChild(inp);
+  inp = document.createElement('input');
+  inp.setAttribute("hidden", "");
+  inp.setAttribute("id", "intervalId_" + data.code);
+  inp.setAttribute("value", "");
+  cell.appendChild(inp);
+
+  if (data.hasOwnProperty('defaultValue')) {
+    var def = document.createElement("input");
+    def.setAttribute("id", "default_" + data.code)
+    def.setAttribute("type", "hidden");
+    def.setAttribute("value", data.defaultValue);
+    cell2.appendChild(def);
+  }
+
+  return idx + 1;
+}
+
+function addAmpTimer(table, idx, name, data) {
+  var row = table.insertRow(idx);
+  var cell1 = row.insertCell(0);
+  cell1.setAttribute("colspan", 2);
+  cell1.setAttribute("style", "text-align: center;");
+  cell1.classList.add("title");
+  if (!data.hasOwnProperty('code')) {
+    cell1.innerHTML = `Error: No code specified for ${name}`;
+    return idx + 1;
+  }
+  cell1.innerHTML = name;
+  if (data.hasOwnProperty('tooltip')) {
+    cell1.setAttribute("title", data.tooltip);
+  }
+
+  idx += 1
+  row = table.insertRow(idx);
+  cell = row.insertCell(0);
+  cell.setAttribute("colspan", 2);
+  cell.setAttribute("style", "text-align: center;");
+
+  if (data.type == 'ampcycle') {
+    var ct = document.createElement('input');
+    ct.setAttribute("type", "hidden");
+    ct.setAttribute("id", "cycletime_" + data.code);
+    ct.setAttribute("value", "[]");
+    cell.appendChild(ct);
+    ct = document.createElement('input');
+    ct.setAttribute("type", "text");
+    ct.setAttribute("id", "display_" + data.code);
+    ct.setAttribute("value", "");
+    ct.setAttribute("disabled", "");
+    cell.appendChild(ct);
+    var lineBreak = document.createElement("br");
+    cell.appendChild(lineBreak);
+  }
+
+  var button1 = document.createElement("input");
+  button1.setAttribute("id", "start_" + data.code);
+  button1.setAttribute("type", "button");
+  button1.setAttribute("onclick", "timer(this.parentElement)");
+  button1.setAttribute("value", "Start");
+  cell.appendChild(button1);
+
+  var inp = document.createElement("input");
+  if (data.type == 'timer') {
+    inp.classList.add("timer");
+  } else {
+    inp.classList.add("cycle");
+  }
+  inp.setAttribute("id", "input_" + data.code);
+  inp.setAttribute("type", "text");
+  if (enableGoogleSheets && data.hasOwnProperty('gsCol')) {
+    inp.setAttribute("name", data.gsCol);
+  } else {
+    inp.setAttribute("name", data.code);
+  }
+  inp.setAttribute("style", "background-color: black; color: white;border: none; text-align: center;");
+  inp.setAttribute("disabled", "");
+  inp.setAttribute("value", 0);
+  inp.setAttribute("size", 7);
+  inp.setAttribute("maxLength", 7);
+  cell.appendChild(inp);
+  
+  var button2 = document.createElement("input");
+  button2.setAttribute("id", "clear_" + data.code);
+  button2.setAttribute("type", "button");
+  button2.setAttribute("onclick", "resetTimer(this.parentElement)");
+  button2.setAttribute("value", "Reset");
+  cell.appendChild(button2);
+  var lineBreak = document.createElement("br");
+  cell.appendChild(lineBreak);
+
+  
+  if (data.type == 'cycle') {
+    var button3 = document.createElement("input");
+    button3.setAttribute("id", "cycle_" + data.code);
+    button3.setAttribute("type", "button");
+    button3.setAttribute("onclick", "newCycle(this.parentElement)");
+    button3.setAttribute("value", "New Cycle");
+    cell.appendChild(button3);
+
+    var button4 = document.createElement("input");
+    button4.setAttribute("id", "undo_" + data.code);
+    button4.setAttribute("type", "button");
+    button4.setAttribute("onclick", "undoCycle(this.parentElement)");
+    button4.setAttribute("value", "Undo");
+    button4.setAttribute('style', "margin-left: 20px;");
+    cell.appendChild(button4);
+  }
   idx += 1
   row = table.insertRow(idx);
   row.setAttribute("style", "display:none");
@@ -207,19 +330,20 @@ function addAutoTimer(table, idx, name, data) {
   var button2 = document.createElement("input");
   button2.setAttribute("id", "clear_" + data.code);
   button2.setAttribute("type", "button");
-  button2.setAttribute("onclick", "resetTimer(this.parentElement)");
+  button2.setAttribute("onclick", "stopResetTimer(this.parentElement)");
   button2.setAttribute("value", "Reset");
   cell.appendChild(button2);
   var lineBreak = document.createElement("br");
   cell.appendChild(lineBreak);
 
-  if (data.type == 'autocycle') {
+  if (data.type == 'ampcycle') {
     var button3 = document.createElement("input");
     button3.setAttribute("id", "cycle_" + data.code);
     button3.setAttribute("type", "button");
-    button3.setAttribute("onclick", "newAutoCycle(this.parentElement)");
+    button3.setAttribute("onclick", "newCycle(this.parentElement)");
     button3.setAttribute("value", "New Cycle");
     cell.appendChild(button3);
+
     var button4 = document.createElement("input");
     button4.setAttribute("id", "undo_" + data.code);
     button4.setAttribute("type", "button");
@@ -256,19 +380,19 @@ function addAutoTimer(table, idx, name, data) {
 
   return idx + 1;
 }
-
 function addCounter(table, idx, name, data) {
   var row = table.insertRow(idx);
   var cell1 = row.insertCell(0);
   cell1.classList.add("title");
   if (!data.hasOwnProperty('code')) {
-    cell1.innerHTML = `Error: No code specified for ${name}`;
-    return idx + 1;
+      cell1.innerHTML = `Error: No code specified for ${name}`;
+      return idx + 1;
   }
+
   var cell2 = row.insertCell(1);
   cell1.innerHTML = name + '&nbsp;';
   if (data.hasOwnProperty('tooltip')) {
-    cell1.setAttribute("title", data.tooltip);
+      cell1.setAttribute("title", data.tooltip);
   }
   cell2.classList.add("field");
 
@@ -282,11 +406,13 @@ function addCounter(table, idx, name, data) {
   inp.classList.add("counter");
   inp.setAttribute("id", "input_" + data.code);
   inp.setAttribute("type", "text");
+
   if (enableGoogleSheets && data.hasOwnProperty('gsCol')) {
-    inp.setAttribute("name", data.gsCol);
+      inp.setAttribute("name", data.gsCol);
   } else {
-    inp.setAttribute("name", data.code);
+      inp.setAttribute("name", data.code);
   }
+
   inp.setAttribute("style", "background-color: black; color: white;border: none; text-align: center;");
   inp.setAttribute("disabled", "");
   inp.setAttribute("value", 0);
@@ -301,11 +427,11 @@ function addCounter(table, idx, name, data) {
   cell2.appendChild(button2);
 
   if (data.hasOwnProperty('defaultValue')) {
-    var def = document.createElement("input");
-    def.setAttribute("id", "default_" + data.code)
-    def.setAttribute("type", "hidden");
-    def.setAttribute("value", data.defaultValue);
-    cell2.appendChild(def);
+      var def = document.createElement("input");
+      def.setAttribute("id", "default_" + data.code)
+      def.setAttribute("type", "hidden");
+      def.setAttribute("value", data.defaultValue);
+      cell2.appendChild(def);
   }
 
   return idx + 1;
@@ -529,7 +655,7 @@ function addText(table, idx, name, data) {
   inp.setAttribute("name", data.code);
 
   if (data.hasOwnProperty('rows') && data.hasOwnProperty('cols')) {
-      inp.setAttribute("maxLength", data.cols * data.rows * 1000);
+      inp.setAttribute("maxLength", data.cols * data.rows * 2000);
   }
   else if (data.hasOwnProperty('maxSize')) {
       inp.setAttribute("maxLength", data.maxSize);
@@ -766,6 +892,9 @@ function addElement(table, idx, data) {
   } else if ((data.type == 'timer') ||
        (data.type == 'autocycle')) {
     idx = addAutoTimer(table, idx, name, data);
+  } else if ((data.type == 'amptimer') ||
+        (data.type == 'ampcycle')) {
+    idx = addAmpTimer(table, idx, name, data);
   } else {
 
     console.log(`Unrecognized type: ${data.type}`);
@@ -1210,6 +1339,7 @@ function swipePage(increment){
   pageNum += increment;
   if(pageNum == 2) {
     startFirstTimer();
+    startSecondTimer();
   }
   if(pageNum == lastPageNum){
     SendDataToGoogleSheets();
@@ -1520,7 +1650,18 @@ async function startFirstTimer(){
   document.getElementById("start_tct").click();
 }
 
+async function startSecondTimer(){
+  document.getElementById("start_act").click();
+}
+
 function resetTimer(event) {
+  let timerID = event.firstChild;
+  let tId = getIdBase(timerID.id);
+  let inp = document.getElementById("input" + tId)
+  inp.value = 0
+}
+
+function stopResetTimer(event) {
   let timerID = event.firstChild;
   let tId = getIdBase(timerID.id);
   let inp = document.getElementById("input" + tId)

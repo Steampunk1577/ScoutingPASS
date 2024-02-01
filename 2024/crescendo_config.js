@@ -67,6 +67,15 @@ var config_data = `
     "ntos": "Near The Opponent Source"
   },
   "required": "true"
+  },
+  { "name": "Field Image",
+      "code": "fi",
+      "type": "clickable_image",
+      "filename": "2024/field_image.png",
+      "dimensions": "0 0",
+      "clickRestriction": "onePerBox",
+      "showFlip": "false",
+      "showUndo": "false"
   }
 ],
 "auton": [
@@ -79,6 +88,8 @@ var config_data = `
   "type": "clickable_image",
   "filename": "2024/field_image.png",
   "shape": "circle 5 black red true",
+  "dimensions": "3 5",
+  "clickRestriction": "onePerBox",
   "cycleTimer": "apt"
   },
   { "name": "Crossed The Line",
@@ -120,16 +131,22 @@ var config_data = `
       "type": "clickable_image",
       "filename": "2024/field_image.png",
       "dimensions": "9 4",
-      "shape": "circle 3 black red true",
+      "shape": "circle 5 black red true",
       "cycleTimer": "tct"
   },
+  { "name": "AMP Cycle Timer",
+  "code": "act",
+  "type": "ampcycle"
+  },
+  
   { "name": "Missed Note Speaker",
   "code": "mns",
   "type": "counter"
   },
   { "name": "Score AMP",
       "code": "sa",
-      "type": "counter"
+      "type": "counter",
+      "cycleTimer": "tct"
   },
   { "name": "Missed Note AMP",
       "code": "mna",
