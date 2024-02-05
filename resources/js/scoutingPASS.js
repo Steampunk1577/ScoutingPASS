@@ -340,7 +340,7 @@ function addAutoTimer(table, idx, name, data) {
     var button3 = document.createElement("input");
     button3.setAttribute("id", "cycle_" + data.code);
     button3.setAttribute("type", "button");
-    button3.setAttribute("onclick", "newCycle(this.parentElement)");
+    button3.setAttribute("onclick", "newAutoCycle(this.parentElement)");
     button3.setAttribute("value", "New Cycle");
     cell.appendChild(button3);
 
