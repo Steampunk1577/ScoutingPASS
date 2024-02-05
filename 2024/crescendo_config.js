@@ -33,7 +33,7 @@ var config_data = `
     "code": "m",
     "type": "match",
     "min": 1,
-    "max": 200,
+    "max": 5000,
     "required": "true"
   },
   { "name": "Robot",
@@ -60,18 +60,20 @@ var config_data = `
   "code": "asp",
   "type": "radio",
   "choices": {
-    "n/a": "Not On Field<br>",
-    "nta": "Near The AMP<br>",
-    "nts": "Near The Speaker<br>",
-    "ifot": "In Front Of The Stage<br>",
-    "ntos": "Near The Opponent Source"
+    "0": "Not On Field<br>",
+    "1": "1<br>",
+    "2": "2<br>",
+    "3": "3<br>",
+    "4": "4<br>",
+    "4": "4<br>",
+    "5": "5"
   },
   "required": "true"
   },
   { "name": "Field Image",
       "code": "fi",
       "type": "clickable_image",
-      "filename": "2024/field_image.png",
+      "filename": "2024/auto_field_image.png",
       "dimensions": "0 0",
       "clickRestriction": "onePerBox",
       "showFlip": "false",

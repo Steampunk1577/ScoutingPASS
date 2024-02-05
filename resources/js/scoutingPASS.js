@@ -220,7 +220,7 @@ function addAmpTimer(table, idx, name, data) {
   cell.appendChild(lineBreak);
 
   
-  if (data.type == 'cycle') {
+  if (data.type == 'ampcycle') {
     var button3 = document.createElement("input");
     button3.setAttribute("id", "cycle_" + data.code);
     button3.setAttribute("type", "button");
@@ -336,7 +336,7 @@ function addAutoTimer(table, idx, name, data) {
   var lineBreak = document.createElement("br");
   cell.appendChild(lineBreak);
 
-  if (data.type == 'ampcycle') {
+  if (data.type == 'autocycle') {
     var button3 = document.createElement("input");
     button3.setAttribute("id", "cycle_" + data.code);
     button3.setAttribute("type", "button");
