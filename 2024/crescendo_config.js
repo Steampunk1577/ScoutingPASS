@@ -90,6 +90,7 @@ var config_data = `
   "type": "clickable_image",
   "filename": "2024/field_image.png",
   "shape": "circle 5 black red true",
+  "toggleClick": "true",
   "dimensions": "3 5",
   "clickRestriction": "onePerBox",
   "cycleTimer": "apt"

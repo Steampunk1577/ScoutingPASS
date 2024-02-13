@@ -219,23 +219,6 @@ function addAmpTimer(table, idx, name, data) {
   var lineBreak = document.createElement("br");
   cell.appendChild(lineBreak);
 
-  
-  if (data.type == 'ampcycle') {
-    var button3 = document.createElement("input");
-    button3.setAttribute("id", "cycle_" + data.code);
-    button3.setAttribute("type", "button");
-    button3.setAttribute("onclick", "newCycle(this.parentElement)");
-    button3.setAttribute("value", "New Cycle");
-    cell.appendChild(button3);
-
-    var button4 = document.createElement("input");
-    button4.setAttribute("id", "undo_" + data.code);
-    button4.setAttribute("type", "button");
-    button4.setAttribute("onclick", "undoCycle(this.parentElement)");
-    button4.setAttribute("value", "Undo");
-    button4.setAttribute('style', "margin-left: 20px;");
-    cell.appendChild(button4);
-  }
   idx += 1
   row = table.insertRow(idx);
   row.setAttribute("style", "display:none");
