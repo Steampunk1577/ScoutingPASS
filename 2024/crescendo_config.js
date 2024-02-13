@@ -139,17 +139,15 @@ var config_data = `
   },
   { "name": "AMP Cycle Timer",
   "code": "act",
-  "type": "ampcycle"
+  "type": "cycle"
   },
-  
   { "name": "Missed Note Speaker",
   "code": "mns",
   "type": "counter"
   },
   { "name": "Score AMP",
       "code": "sa",
-      "type": "counter",
-      "cycleTimer": "tct"
+      "type": "counter"
   },
   { "name": "Missed Note AMP",
       "code": "mna",
