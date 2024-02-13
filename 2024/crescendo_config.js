@@ -181,9 +181,12 @@ var config_data = `
     "code": "cwab",
     "type":"radio",
     "choices": {
+      "0": "0<br>",
       "1": "+1<br>",
       "2": "+2"
-    }
+    },
+    "defaultValue": "0",
+    "required": "true"
   },
   { "name": "Tried To Place Traps",
       "code": "ttpt",
