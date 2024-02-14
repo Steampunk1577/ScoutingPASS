@@ -177,15 +177,15 @@ var config_data = `
     }, 
     "defaultValue": "n/a"
   }, 
-  { "name": "Climb With Another Bot",
-    "code": "cwab",
+  { "name": "Bots On The Same Chain",
+    "code": "h",
     "type":"radio",
     "choices": {
-      "0": "0<br>",
-      "1": "+1<br>",
-      "2": "+2"
+      "1": "1<br>",
+      "2": "2<br>",
+      "3": "3"
     },
-    "defaultValue": "0",
+    "defaultValue": "1",
     "required": "true"
   },
   { "name": "Tried To Place Traps",
