@@ -137,10 +137,6 @@ var config_data = `
       "shape": "circle 5 black red true",
       "cycleTimer": "tct"
   },
-  { "name": "AMP Cycle Timer",
-  "code": "act",
-  "type": "cycle"
-  },
   { "name": "Missed Note Speaker",
   "code": "mns",
   "type": "counter"
