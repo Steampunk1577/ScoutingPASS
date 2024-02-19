@@ -24,6 +24,11 @@ var options = {
 function clickStart() {
   Document.getElementByIs("start_tct").click();
 }
+
+function clickStart() {
+  Document.getElementByIs("start_act").click();
+}
+
 function addTimer(table, idx, name, data) {
   var row = table.insertRow(idx);
   var cell1 = row.insertCell(0);
@@ -103,6 +108,7 @@ function addTimer(table, idx, name, data) {
     button3.setAttribute("onclick", "newCycle(this.parentElement)");
     button3.setAttribute("value", "New Cycle");
     cell.appendChild(button3);
+
     var button4 = document.createElement("input");
     button4.setAttribute("id", "undo_" + data.code);
     button4.setAttribute("type", "button");
@@ -140,18 +146,135 @@ function addTimer(table, idx, name, data) {
   return idx + 1;
 }
 
-function addCounter(table, idx, name, data) {
+function addAutoTimer(table, idx, name, data) {
   var row = table.insertRow(idx);
   var cell1 = row.insertCell(0);
+  cell1.setAttribute("colspan", 2);
+  cell1.setAttribute("style", "text-align: center;");
   cell1.classList.add("title");
   if (!data.hasOwnProperty('code')) {
     cell1.innerHTML = `Error: No code specified for ${name}`;
     return idx + 1;
   }
+  cell1.innerHTML = name;
+  if (data.hasOwnProperty('tooltip')) {
+    cell1.setAttribute("title", data.tooltip);
+  }
+
+  idx += 1
+  row = table.insertRow(idx);
+  cell = row.insertCell(0);
+  cell.setAttribute("colspan", 2);
+  cell.setAttribute("style", "text-align: center;");
+
+  if (data.type == 'autocycle') {
+    var ct = document.createElement('input');
+    ct.setAttribute("type", "hidden");
+    ct.setAttribute("id", "cycletime_" + data.code);
+    ct.setAttribute("value", "[]");
+    cell.appendChild(ct);
+    ct = document.createElement('input');
+    ct.setAttribute("type", "text");
+    ct.setAttribute("id", "display_" + data.code);
+    ct.setAttribute("value", "");
+    ct.setAttribute("disabled", "");
+    cell.appendChild(ct);
+    var lineBreak = document.createElement("br");
+    cell.appendChild(lineBreak);
+  }
+  var button1 = document.createElement("input");
+  button1.setAttribute("id", "start_" + data.code);
+  button1.setAttribute("type", "button");
+  button1.setAttribute("onclick", "timer(this.parentElement)");
+  button1.setAttribute("value", "Start");
+  cell.appendChild(button1);
+
+  var inp = document.createElement("input");
+  if (data.type == 'timer') {
+    inp.classList.add("timer");
+  } else {
+    inp.classList.add("cycle");
+  }
+  inp.setAttribute("id", "input_" + data.code);
+  inp.setAttribute("type", "text");
+  if (enableGoogleSheets && data.hasOwnProperty('gsCol')) {
+    inp.setAttribute("name", data.gsCol);
+  } else {
+    inp.setAttribute("name", data.code);
+  }
+  inp.setAttribute("style", "background-color: black; color: white;border: none; text-align: center;");
+  inp.setAttribute("disabled", "");
+  inp.setAttribute("value", 0);
+  inp.setAttribute("size", 7);
+  inp.setAttribute("maxLength", 7);
+  cell.appendChild(inp);
+
+  var button2 = document.createElement("input");
+  button2.setAttribute("id", "clear_" + data.code);
+  button2.setAttribute("type", "button");
+  button2.setAttribute("onclick", "stopResetTimer(this.parentElement)");
+  button2.setAttribute("value", "Reset");
+  cell.appendChild(button2);
+  var lineBreak = document.createElement("br");
+  cell.appendChild(lineBreak);
+
+  if (data.type == 'autocycle') {
+    var button3 = document.createElement("input");
+    button3.setAttribute("id", "cycle_" + data.code);
+    button3.setAttribute("type", "button");
+    button3.setAttribute("onclick", "newAutoCycle(this.parentElement)");
+    button3.setAttribute("value", "New Cycle");
+    cell.appendChild(button3);
+
+    var button4 = document.createElement("input");
+    button4.setAttribute("id", "undo_" + data.code);
+    button4.setAttribute("type", "button");
+    button4.setAttribute("onclick", "undoCycle(this.parentElement)");
+    button4.setAttribute("value", "Undo");
+    button4.setAttribute('style', "margin-left: 20px;");
+    cell.appendChild(button4);
+  }
+
+  idx += 1
+  row = table.insertRow(idx);
+  row.setAttribute("style", "display:none");
+  cell = row.insertCell(0);
+  cell.setAttribute("colspan", 2);
+  cell.setAttribute("style", "text-align: center;");
+  var inp = document.createElement('input');
+  inp.setAttribute("type", "hidden");
+  inp.setAttribute("id", "status_" + data.code);
+  inp.setAttribute("value", "stopped");
+  cell.appendChild(inp);
+  inp = document.createElement('input');
+  inp.setAttribute("hidden", "");
+  inp.setAttribute("id", "intervalId_" + data.code);
+  inp.setAttribute("value", "");
+  cell.appendChild(inp);
+
+  if (data.hasOwnProperty('defaultValue')) {
+    var def = document.createElement("input");
+    def.setAttribute("id", "default_" + data.code)
+    def.setAttribute("type", "hidden");
+    def.setAttribute("value", data.defaultValue);
+    cell2.appendChild(def);
+  }
+
+  return idx + 1;
+}
+function addCounter(table, idx, name, data) {
+  var row = table.insertRow(idx);
+  var cell1 = row.insertCell(0);
+  cell1.classList.add("title");
+  if (!data.hasOwnProperty('code')) {
+      cell1.innerHTML = `Error: No code specified for ${name}`;
+      return idx + 1;
+  }
+
   var cell2 = row.insertCell(1);
   cell1.innerHTML = name + '&nbsp;';
   if (data.hasOwnProperty('tooltip')) {
-    cell1.setAttribute("title", data.tooltip);
+      cell1.setAttribute("title", data.tooltip);
   }
   cell2.classList.add("field");
 
@@ -165,11 +288,13 @@ function addCounter(table, idx, name, data) {
   inp.classList.add("counter");
   inp.setAttribute("id", "input_" + data.code);
   inp.setAttribute("type", "text");
+
   if (enableGoogleSheets && data.hasOwnProperty('gsCol')) {
-    inp.setAttribute("name", data.gsCol);
+      inp.setAttribute("name", data.gsCol);
   } else {
-    inp.setAttribute("name", data.code);
+      inp.setAttribute("name", data.code);
   }
+
   inp.setAttribute("style", "background-color: black; color: white;border: none; text-align: center;");
   inp.setAttribute("disabled", "");
   inp.setAttribute("value", 0);
@@ -184,11 +309,11 @@ function addCounter(table, idx, name, data) {
   cell2.appendChild(button2);
 
   if (data.hasOwnProperty('defaultValue')) {
-    var def = document.createElement("input");
-    def.setAttribute("id", "default_" + data.code)
-    def.setAttribute("type", "hidden");
-    def.setAttribute("value", data.defaultValue);
-    cell2.appendChild(def);
+      var def = document.createElement("input");
+      def.setAttribute("id", "default_" + data.code)
+      def.setAttribute("type", "hidden");
+      def.setAttribute("value", data.defaultValue);
+      cell2.appendChild(def);
   }
 
   return idx + 1;
@@ -319,6 +444,17 @@ function addClickableImage(table, idx, name, data) {
 
   inp = document.createElement('input');
   inp.setAttribute("hidden", "");
+  inp.setAttribute("id", "allowableResponses_" + data.code);
+  inp.setAttribute("value", "none");
+  if (data.hasOwnProperty('allowableResponses')) {
+    let responses = data.allowableResponses.split(' ').map(Number)
+    console.log(responses)
+      inp.setAttribute("value", responses);
+  }
+  cell.appendChild(inp);
+
+  inp = document.createElement('input');
+  inp.setAttribute("hidden", "");
   inp.setAttribute("id", "shape_" + data.code);
   // Default shape: white circle of size 5 not filled in
   inp.setAttribute("value", "circle 5 white white true");
@@ -373,46 +509,56 @@ function addText(table, idx, name, data) {
   var cell1 = row.insertCell(0);
   cell1.classList.add("title");
   if (!data.hasOwnProperty('code')) {
-    cell1.innerHTML = `Error: No code specified for ${name}`;
-    return idx + 1;
+      cell1.innerHTML = `Error: No code specified for ${name}`;
+      return idx + 1;
   }
   var cell2 = row.insertCell(1);
   cell1.innerHTML = name + '&nbsp;';
-  if (data.hasOwnProperty('tooltip')) {
-    cell1.setAttribute("title", data.tooltip);
-  }
   cell2.classList.add("field");
-  var inp = document.createElement("input");
+  if (data.hasOwnProperty('rows')) {
+      var inp = document.createElement("textarea");
+      inp.setAttribute("dir", "rtl");
+      if (data.hasOwnProperty('rows')) {
+          inp.setAttribute("rows", data.rows);
+      }
+      if (data.hasOwnProperty('cols')) {
+          inp.setAttribute("cols", data.cols);
+      }
+  }
+  else {
+      var inp = document.createElement("input");
+      if (data.hasOwnProperty('size')) {
+          inp.setAttribute("size", data.size);
+      }
+  }
+
   inp.setAttribute("id", "input_" + data.code);
   inp.setAttribute("type", "text");
-  if (enableGoogleSheets && data.hasOwnProperty('gsCol')) {
-    inp.setAttribute("name", data.gsCol);
-  } else {
-    inp.setAttribute("name", data.code);
+  inp.setAttribute("name", data.code);
+
+  if (data.hasOwnProperty('rows') && data.hasOwnProperty('cols')) {
+      inp.setAttribute("maxLength", data.cols * data.rows * 2000);
   }
-  if (data.hasOwnProperty('size')) {
-    inp.setAttribute("size", data.size);
-  }
-  if (data.hasOwnProperty('maxSize')) {
-    inp.setAttribute("maxLength", data.maxSize);
+  else if (data.hasOwnProperty('maxSize')) {
+      inp.setAttribute("maxLength", data.maxSize);
   }
   if (data.hasOwnProperty('defaultValue')) {
-    inp.setAttribute("value", data.defaultValue);
+      inp.setAttribute("value", data.defaultValue);
   }
   if (data.hasOwnProperty('required')) {
-    inp.setAttribute("required", "");
+      inp.setAttribute("required", "");
   }
   if (data.hasOwnProperty('disabled')) {
-    inp.setAttribute("disabled", "");
+      inp.setAttribute("disabled", "");
   }
   cell2.appendChild(inp);
 
   if (data.hasOwnProperty('defaultValue')) {
-    var def = document.createElement("input");
-    def.setAttribute("id", "default_" + data.code)
-    def.setAttribute("type", "hidden");
-    def.setAttribute("value", data.defaultValue);
-    cell2.appendChild(def);
+      var def = document.createElement("input");
+      def.setAttribute("id", "default_" + data.code)
+      def.setAttribute("type", "hidden");
+      def.setAttribute("value", data.defaultValue);
+      cell2.appendChild(def);
   }
 
   return idx + 1
@@ -625,7 +771,11 @@ function addElement(table, idx, data) {
   } else if ((data.type == 'timer') ||
 	     (data.type == 'cycle')) {
     idx = addTimer(table, idx, name, data);
+  } else if ((data.type == 'timer') ||
+       (data.type == 'autocycle')) {
+    idx = addAutoTimer(table, idx, name, data);
   } else {
+
     console.log(`Unrecognized type: ${data.type}`);
   }
   return idx
@@ -758,7 +908,6 @@ function resetRobot() {
   }
 }
 
-
 function getLevel() {
   if (document.getElementById("input_l_qm").checked) {
     return "qm";
@@ -781,6 +930,7 @@ function validateLevel() {
     return false
   }
 }
+
 function isRadioButton(code) {
   inputs = document.querySelectorAll("[id*='input_" + code + "']");
   for (e of inputs) {
@@ -1068,6 +1218,7 @@ function swipePage(increment){
   pageNum += increment;
   if(pageNum == 2) {
     startFirstTimer();
+    startSecondTimer();
   }
   if(pageNum == lastPageNum){
     SendDataToGoogleSheets();
@@ -1080,11 +1231,11 @@ function swipePage(increment){
       window.scrollTo(0, 0);
       slides[slide].style.display = "table";
       document.getElementById("qrHeader2").innerHTML = "Match: " + getCurrentMatchKey() + " Team: " + document.getElementById("input_t").value;
-      document.getElementById("autonHeader2").innerHTML = "Auton " + "Team: " + document.getElementById("input_t").value;
+      document.getElementById("autonHeader2").innerHTML = "Auto " + "Team: " + document.getElementById("input_t").value;
       document.getElementById("teleopHeader2").innerHTML = "Teleop " + "Team: " + document.getElementById("input_t").value;
       document.getElementById("endgameHeader2").innerHTML = "Endgame " + "Team: " + document.getElementById("input_t").value;
       document.getElementById("postmatchHeader2").innerHTML = "Post Match " + "Team: " + document.getElementById("input_t").value;
-      document.getElementById("secondaryforceHeader2").innerHTML = "Report Shanie " + "Team: " + document.getElementById("input_t").value;
+      document.getElementById("secondaryforceHeader2").innerHTML = "Report Shani " + "Team: " + document.getElementById("input_t").value;
       document.getElementById('data').innerHTML = "";
       document.getElementById('copyButton').setAttribute('value', 'Copy Data');
     }
@@ -1154,6 +1305,14 @@ function onFieldClick(event) {
   let box = ((Math.ceil(event.offsetY / target.height * resY) - 1) * resX) + Math.ceil(event.offsetX / target.width * resX);
   let coords = event.offsetX + "," + event.offsetY;
 
+  let allowableResponses = document.getElementById("allowableResponses" + base).value;
+
+  if(allowableResponses != "none"){
+    allowableResponsesList = allowableResponses.split(',').map(Number);
+    if (allowableResponsesList.indexOf(box)==-1){
+      return;
+    }
+  }
 
   //Cumulating values
   let changingXY = document.getElementById("XY" + base);
@@ -1337,6 +1496,23 @@ function newCycle(event)
   }
 }
 
+function newAutoCycle(event)
+{
+  let timerID = event.firstChild;
+  let base = getIdBase(timerID.id);
+  let inp = document.getElementById("input" + base)
+  let cycleTime = inp.value
+
+  if (cycleTime > 0) {
+    let cycleInput = document.getElementById("cycletime" + base);
+    var tempValue = Array.from(JSON.parse(cycleInput.value));
+    tempValue.push(cycleTime);
+    cycleInput.value = JSON.stringify(tempValue);
+    let d = document.getElementById("display" + base);
+    d.value = cycleInput.value.replace(/\"/g,'').replace(/\[/g, '').replace(/\]/g, '').replace(/,/g, ', ');
+  }
+}
+
 function undoCycle(event) {
   let undoID = event.firstChild;
   let uId = getIdBase(undoID.id);
@@ -1349,15 +1525,22 @@ function undoCycle(event) {
   d.value = cycleInput.value.replace(/\"/g,'').replace(/\[/g, '').replace(/\]/g, '').replace(/,/g, ', ');
 }
 
-
 async function startFirstTimer(){
   document.getElementById("start_tct").click();
 }
 
-
-
+async function startSecondTimer(){
+  document.getElementById("start_act").click();
+}
 
 function resetTimer(event) {
+  let timerID = event.firstChild;
+  let tId = getIdBase(timerID.id);
+  let inp = document.getElementById("input" + tId)
+  inp.value = 0
+}
+
+function stopResetTimer(event) {
   let timerID = event.firstChild;
   let tId = getIdBase(timerID.id);
   let inp = document.getElementById("input" + tId)
