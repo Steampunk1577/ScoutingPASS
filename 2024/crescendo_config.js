@@ -107,11 +107,11 @@ var config_data = `
   "code": "mn",
   "type": "counter"
   },
-  { "name": "Scored Note AMP",
+  { "name": "Scored Note Amp",
   "code": "sna",
   "type": "counter"
   },
-  { "name": "Missed Note AMP",
+  { "name": "Missed Note Amp",
   "code": "mna",
   "type": "counter"
   },
@@ -141,12 +141,12 @@ var config_data = `
   "code": "mns",
   "type": "counter"
   },
-  { "name": "Score AMP",
-      "code": "sa",
+  { "name": "Score Note Amp",
+      "code": "tsna",
       "type": "counter"
   },
-  { "name": "Missed Note AMP",
-      "code": "mna",
+  { "name": "Missed Note Amp",
+      "code": "tmna",
       "type": "counter"
   },
   { "name": "Pass Note",
@@ -173,8 +173,8 @@ var config_data = `
     }, 
     "defaultValue": "n/a"
   }, 
-  { "name": "Bots On The Same Chain",
-    "code": "h",
+  { "name": "On The Same Chain",
+    "code": "otsc",
     "type":"radio",
     "choices": {
       "1": "1<br>",
@@ -191,6 +191,10 @@ var config_data = `
   { "name": "Placed Traps",
       "code": "pt",
       "type": "counter"
+  },
+  { "name": "Helped Another Bot",
+  "code": "hab",
+  "type": "bool"
   }
 ],
 "postmatch": [
