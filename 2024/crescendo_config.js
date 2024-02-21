@@ -14,7 +14,7 @@ var config_data = `
   { "name": "Event",
     "code": "e",
     "type": "event",
-    "defaultValue": "2023isios",
+    "defaultValue": "2024isde1",
     "required": "true",
     "disabled": "true"
   },
@@ -253,7 +253,7 @@ var config_data = `
     "code": "fc",
     "type": "radio",
     "choices": {
-      "dngac": "Did Not Got A Card<br>",
+      "dngac": "Did Not Get A Card<br>",
       "yc": "Yellow Card<br>",
       "rc": "Red Card"
     },
