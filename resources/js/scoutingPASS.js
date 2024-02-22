@@ -1099,6 +1099,7 @@ function clearForm() {
   var match = 0;
   var e = 0;
 
+
   swipePage(-lastPageNum)
 
   // Increment match
@@ -1151,14 +1152,14 @@ function clearForm() {
         }
       }
     } else {
-      if (e.type == "number" || e.type == "text" || e.type == "hidden") {
+      if (e.type == "number" || e.type == "textarea" || e.type == "text" || e.type == "hidden") {
         if ((e.className == "counter") ||
           (e.className == "timer") ||
 	  (e.className == "cycle")) {
           e.value = 0
-	  if (e.className == "timer" || e.className == "cycle") {
-	    // Stop interval
-	    timerStatus = document.getElementById("status_" + code);
+          if (e.className == "timer" || e.className == "cycle") {
+            // Stop interval
+            timerStatus = document.getElementById("status_" + code);
             startButton = document.getElementById("start_" + code);
             intervalIdField = document.getElementById("intervalId_" + code);
             var intervalId = intervalIdField.value;
@@ -1168,12 +1169,12 @@ function clearForm() {
               clearInterval(intervalId);
             }
             intervalIdField.value = '';
-	    if (e.className == "cycle") {
-	      document.getElementById("cycletime_" + code).value = "[]"
-	      document.getElementById("display_" + code).value = ""
-	    }
-	  }
-	} else {
+            if (e.className == "cycle") {
+              document.getElementById("cycletime_" + code).value = "[]"
+              document.getElementById("display_" + code).value = ""
+            }
+          }
+        } else {
           e.value = ""
         }
       } else if (e.type == "checkbox") {
