@@ -1200,16 +1200,6 @@ function moveTouch(e) {
 
   var currentX = e.changedTouches[0].screenX;
   var diffX = initialX - currentX;
-
-  // sliding horizontally
-  if (diffX / screen.width > xThreshold) {
-    // swiped left
-    swipePage(1);
-  } else if (diffX / screen.width < -xThreshold) {
-    // swiped right
-    swipePage(-1);
-  }
-  initialX = null;
 };
 
 function swipePage(increment){
