@@ -5,7 +5,7 @@ document.addEventListener("touchstart", startTouch, false);
 document.addEventListener("touchend", moveTouch, false);
 // Swipe Up / Down / Left / Right
 var initialX = null;
-var xThreshold = 0;
+var xThreshold = 0.3;
 var slide = 0;
 var enableGoogleSheets = false;
 var checkboxAs = 'YN';
@@ -23,10 +23,6 @@ var options = {
 
 function clickStart() {
   Document.getElementByIs("start_tct").click();
-}
-
-function clickStart() {
-  Document.getElementByIs("start_act").click();
 }
 
 function addTimer(table, idx, name, data) {
@@ -1201,14 +1197,6 @@ function moveTouch(e) {
   var currentX = e.changedTouches[0].screenX;
   var diffX = initialX - currentX;
 
-  // sliding horizontally
-  if (diffX / screen.width > xThreshold) {
-    // swiped left
-    swipePage(1);
-  } else if (diffX / screen.width < -xThreshold) {
-    // swiped right
-    swipePage(-1);
-  }
   initialX = null;
 };
 
@@ -1219,7 +1207,6 @@ function swipePage(increment){
   pageNum += increment;
   if(pageNum == 2) {
     startFirstTimer();
-    startSecondTimer();
   }
   if(pageNum == lastPageNum){
     SendDataToGoogleSheets();
@@ -1528,10 +1515,6 @@ function undoCycle(event) {
 
 async function startFirstTimer(){
   document.getElementById("start_tct").click();
-}
-
-async function startSecondTimer(){
-  document.getElementById("start_act").click();
 }
 
 function resetTimer(event) {
