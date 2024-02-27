@@ -1072,9 +1072,7 @@ function updateQRHeader() {
     .replace('!ROBOT!', document.getElementById("display_r").value)
     .replace('!TEAM!', document.getElementById("input_t").value);
 
-  document.getElementById("display_qr-info").textContent = str;
 }
-
 
 function qr_regenerate() {
   // Get data

@@ -261,7 +261,7 @@ var config_data = `
   "code": "d",
   "type": "bool"
   },
-  { "name": "Swerve",
+  { "name": "Not Swerve",
     "code": "sw",
     "type": "bool"
   },
