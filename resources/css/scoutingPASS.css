@@ -247,5 +247,6 @@ input {
 
 #data {
     font-family:'Lucida Console', 'monospace';
+    color: white;
     text-align: justify;
 }
