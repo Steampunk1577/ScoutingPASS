@@ -14,7 +14,7 @@ var config_data = `
   { "name": "Event",
     "code": "e",
     "type": "event",
-    "defaultValue": "2024isde1",
+    "defaultValue": "2024isde3",
     "required": "true",
     "disabled": "true"
   },
@@ -64,7 +64,6 @@ var config_data = `
     "1": "1<br>",
     "2": "2<br>",
     "3": "3<br>",
-    "4": "4<br>",
     "4": "4<br>",
     "5": "5"
   },
@@ -262,7 +261,7 @@ var config_data = `
   "code": "d",
   "type": "bool"
   },
-  { "name": "Swerve",
+  { "name": "Not Swerve",
     "code": "sw",
     "type": "bool"
   },

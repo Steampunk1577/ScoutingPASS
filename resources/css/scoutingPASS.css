@@ -65,10 +65,16 @@ html, body{
     border-width: 4px;
 }
 
-#qrHeader1, #qrHeader2 {
-    color: black;
+#qrHeader1 {
+    color: white;
+    border: 4px solid #f0912b;
+    width: 100%;
 }
     
+#qrHeader2 {
+    color: white;
+}
+
 .field-image {
     margin: 2vw;
 }
@@ -76,6 +82,7 @@ html, body{
 .field-image-src{  
     background-position: center;
     border: 1px solid;
+    width: 350px;
 }
 
 .main-panel{
@@ -209,7 +216,7 @@ h1 .spcolor {
 }
 
 table {
-    border: 1px solid white;
+    border: 4px solid #f0912b;
     width: 100%;
 }
 
@@ -235,10 +242,11 @@ input {
 #qr-table {
     text-align: center;
     color: black;
-    background-color: white;
+    background-color: black;
 }
 
 #data {
     font-family:'Lucida Console', 'monospace';
+    color: white;
     text-align: justify;
 }

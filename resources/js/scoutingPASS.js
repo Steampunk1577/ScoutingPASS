@@ -25,10 +25,6 @@ function clickStart() {
   Document.getElementByIs("start_tct").click();
 }
 
-function clickStart() {
-  Document.getElementByIs("start_act").click();
-}
-
 function addTimer(table, idx, name, data) {
   var row = table.insertRow(idx);
   var cell1 = row.insertCell(0);
@@ -1076,9 +1072,7 @@ function updateQRHeader() {
     .replace('!ROBOT!', document.getElementById("display_r").value)
     .replace('!TEAM!', document.getElementById("input_t").value);
 
-  document.getElementById("display_qr-info").textContent = str;
 }
-
 
 function qr_regenerate() {
   // Get data
@@ -1201,14 +1195,6 @@ function moveTouch(e) {
   var currentX = e.changedTouches[0].screenX;
   var diffX = initialX - currentX;
 
-  // sliding horizontally
-  if (diffX / screen.width > xThreshold) {
-    // swiped left
-    swipePage(1);
-  } else if (diffX / screen.width < -xThreshold) {
-    // swiped right
-    swipePage(-1);
-  }
   initialX = null;
 };
 
@@ -1219,7 +1205,6 @@ function swipePage(increment){
   pageNum += increment;
   if(pageNum == 2) {
     startFirstTimer();
-    startSecondTimer();
   }
   if(pageNum == lastPageNum){
     SendDataToGoogleSheets();
@@ -1528,10 +1513,6 @@ function undoCycle(event) {
 
 async function startFirstTimer(){
   document.getElementById("start_tct").click();
-}
-
-async function startSecondTimer(){
-  document.getElementById("start_act").click();
 }
 
 function resetTimer(event) {
