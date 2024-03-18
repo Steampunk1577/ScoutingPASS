@@ -14,7 +14,7 @@ var config_data = `
   { "name": "Event",
     "code": "e",
     "type": "event",
-    "defaultValue": "2024isde3",
+    "defaultValue": "2024iscmp",
     "required": "true",
     "disabled": "true"
   },
@@ -79,10 +79,6 @@ var config_data = `
   }
 ],
 "auton": [
-  { "name": "Auto Pickup Timer",
-  "code": "apt",
-  "type": "autocycle"
-  },
   { "name": "Pickup Order",
   "code": "po",
   "type": "clickable_image",
@@ -90,8 +86,7 @@ var config_data = `
   "shape": "circle 5 black red true",
   "toggleClick": "true",
   "dimensions": "3 5",
-  "clickRestriction": "onePerBox",
-  "cycleTimer": "apt"
+  "clickRestriction": "onePerBox"
   },
   { "name": "Crossed The Line",
   "code": "ctl",
@@ -123,17 +118,12 @@ var config_data = `
   }
 ],
 "teleop": [
-  { "name": "Cycle Timer",
-      "code": "tct",
-      "type": "cycle"
-  },
   { "name": "Scoring Position Speaker",
       "code": "tsp",
       "type": "clickable_image",
       "filename": "2024/field_image.png",
-      "dimensions": "9 4",
-      "shape": "circle 5 black red true",
-      "cycleTimer": "tct"
+      "dimensions": "12 6",
+      "shape": "circle 5 black red true"
   },
   { "name": "Missed Note Speaker",
   "code": "mns",
