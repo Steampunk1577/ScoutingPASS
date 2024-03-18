@@ -14,7 +14,7 @@ var config_data = `
   { "name": "Event",
     "code": "e",
     "type": "event",
-    "defaultValue": "2024isde3",
+    "defaultValue": "2024iscmp",
     "required": "true",
     "disabled": "true"
   },
@@ -131,7 +131,7 @@ var config_data = `
       "code": "tsp",
       "type": "clickable_image",
       "filename": "2024/field_image.png",
-      "dimensions": "9 4",
+      "dimensions": "12 6",
       "shape": "circle 5 black red true",
       "cycleTimer": "tct"
   },
