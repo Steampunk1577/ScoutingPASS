@@ -75,7 +75,8 @@ var config_data = `
       "filename": "2024/auto_field_image.png",
       "dimensions": "0 0",
       "clickRestriction": "onePerBox",
-      "showUndo": "false"
+      "showUndo": "false",
+      "showFlip": "false"
   }
 ],
 "auton": [
