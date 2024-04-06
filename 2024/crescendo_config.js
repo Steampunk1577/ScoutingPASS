@@ -80,6 +80,10 @@ var config_data = `
   }
 ],
 "auton": [
+  { "name": "Auto Pickup Timer",
+  "code": "apt",
+  "type": "autocycle"
+  },
   { "name": "Pickup Order",
   "code": "po",
   "type": "clickable_image",
@@ -87,7 +91,8 @@ var config_data = `
   "shape": "circle 5 black red true",
   "toggleClick": "true",
   "dimensions": "3 5",
-  "clickRestriction": "onePerBox"
+  "clickRestriction": "onePerBox",
+  "cycleTimer": "apt"
   },
   { "name": "Crossed The Line",
   "code": "ctl",
