@@ -14,7 +14,7 @@ var config_data = `
   { "name": "Event",
     "code": "e",
     "type": "event",
-    "defaultValue": "2024iscmp",
+    "defaultValue": "2024gal",
     "required": "true",
     "disabled": "true"
   },
@@ -80,10 +80,6 @@ var config_data = `
   }
 ],
 "auton": [
-  { "name": "Auto Pickup Timer",
-  "code": "apt",
-  "type": "autocycle"
-  },
   { "name": "Pickup Order",
   "code": "po",
   "type": "clickable_image",
@@ -91,8 +87,7 @@ var config_data = `
   "shape": "circle 5 black red true",
   "toggleClick": "true",
   "dimensions": "3 5",
-  "clickRestriction": "onePerBox",
-  "cycleTimer": "apt"
+  "clickRestriction": "onePerBox"
   },
   { "name": "Crossed The Line",
   "code": "ctl",
