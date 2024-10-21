@@ -14,7 +14,7 @@ var config_data = `
   { "name": "Event",
     "code": "e",
     "type": "event",
-    "defaultValue": "2024gal",
+    "defaultValue": "2024isos2",
     "required": "true",
     "disabled": "true"
   },
