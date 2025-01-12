@@ -76,20 +76,18 @@ var config_data = `
   "code": "lst",
   "type": "bool"
   },  
+  { "name": "Auto Reef Level",
+    "code": "areef",
+    "type": "clickable_image",
+    "filename": "2025/reef_image.png",
+    "dimensions": "12 4",
+   "clickRestriction": "onePerBox",
+    "allowableResponses": "1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 20 21 22 23 24 25 26 27 28 29 30 31 32 33 34 35 36",
+    "shape": "circle 5 black red true",
+    "showFlip": "false"
+  },    
   { "name": "Scored Coral L1",
   "code": "asc1",
-  "type": "counter"
-  },
-  { "name": "Scored Coral L2",
-  "code": "asc2",
-  "type": "counter"
-  },
-  { "name": "Scored Coral L3",
-  "code": "asc3",
-  "type": "counter"
-  },
-  { "name": "Scored Coral L4",
-  "code": "asc4",
   "type": "counter"
   },
   { "name": "Missed Coral",
@@ -112,26 +110,29 @@ var config_data = `
   "code": "aftg",
   "type": "counter"
   },
-  { "name": "Removed Algae From The Reef",
+  { "name": "Algae From The Reef",
   "code": "aftr",
   "type": "counter"
   }
 ],
 "teleop": [
+{ "name": "Cycle Timer",
+    "code": "tct",
+    "type": "cycle"
+  },  
+  { "name": "Reef Level",
+    "code": "reef",
+    "type": "clickable_image",
+    "filename": "2025/reef_image.png",
+    "dimensions": "12 4",
+   "clickRestriction": "onePerBox",
+    "allowableResponses": "1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 20 21 22 23 24 25 26 27 28 29 30 31 32 33 34 35 36",
+    "shape": "circle 5 black red true",
+    "showFlip": "false",
+    "cycleTimer": "tct"
+  },    
   { "name": "Scored Coral L1",
-  "code": "asc1",
-  "type": "counter"
-  },
-  { "name": "Scored Coral L2",
-  "code": "asc2",
-  "type": "counter"
-  },
-  { "name": "Scored Coral L3",
-  "code": "asc3",
-  "type": "counter"
-  },
-  { "name": "Scored Coral L4",
-  "code": "asc4",
+  "code": "sc1",
   "type": "counter"
   },
   { "name": "Missed Coral",
@@ -150,7 +151,7 @@ var config_data = `
   "code": "ma",
   "type": "counter"
   },
-  { "name": "Removed Algae From The Reef",
+  { "name": "Algae From The Reef",
   "code": "afr",
   "type": "bool"
   }
