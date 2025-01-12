@@ -1,9 +1,9 @@
 @font-face {
-    font-family: 'Alexis';
+    font-family: 'Night Machine';
     font-style: normal;
     font-weight: normal;
-    src: local('Alexis'), url('../fonts/alex.woff') format('woff');
-    src: url("../fonts/alexisv3.ttf") format('truetype');
+    src: local('Night Machine'), url('../fonts/alex.woff') format('woff');
+    src: url("../fonts/night-machine.ttf") format('truetype');
 }
 
 html, body{
@@ -38,8 +38,8 @@ html, body{
 }
 
 .button {
-    font-family: Alexis; 
-    font-size: 16px;
+    font-family: Night Machine; 
+    font-size: 15px;
 }
 
 #autonHeader, #endgameHeader, #teleopHeader1, #teleopHeader2, #secondaryforceHeader {
@@ -119,7 +119,7 @@ html, body{
 }
 
 h1{
-    font-family: Alexis;
+    font-family: Night Machine;
     text-align: center;
     border-style: groove;
     border-color: white; 
@@ -134,7 +134,7 @@ h1{
 }
 
 h2{
-    font-family: Alexis;
+    font-family: Night Machine;
     text-align: center;
     font-size: 30px;
     font-weight: 300;
@@ -171,7 +171,7 @@ h2{
 }
 
 .clearForm, .submitForm, #displayButton, #copyButton {
-    font-family: Alexis;
+    font-family: Night Machine;
     padding: 10px;
     background-color: #f0912b;
     color: black;
@@ -180,7 +180,7 @@ h2{
 }
 
 #nextButton1, #nextButton2, #nextButton3, #nextButton4, #nextButton5, #nextButton6, #nextButton7, #nextButton8, #nextButton9, #nextButton10, #nextButton11, #nextButton12 {
-    font-family: Alexis;
+    font-family: Night Machine;
     background-color: #f0912b;
     padding: 10px;
     color: black;
@@ -188,7 +188,7 @@ h2{
 }
 
 .undoButton, .flipButton {
-    font-family: Alexis;
+    font-family: Night Machine;
     background-color: black;
     padding: 10px;
     color: white;
@@ -196,7 +196,7 @@ h2{
 }
 
 #prevButton1, #prevButton2, #prevButton3, #prevButton4, #prevButton5, #prevButton6, #prevButton7, #prevButton8, #prevButton9, #prevButton10, #prevButton11 {
-    font-family: Alexis;
+    font-family: Night Machine;
     background-color: #f0912b;
     color: black;
     padding: 10px;
@@ -204,12 +204,12 @@ h2{
 }
 
 #prematch_table{
-    font: Alexis;
+    font: Night Machine;
     text-align: center;
 }
 
 h1 .spcolor {
-    font-family: Alexis;
+    font-family: Night Machine;
     text-align: center;
     color: #f0912b;
 }
