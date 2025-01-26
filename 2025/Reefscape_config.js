@@ -62,7 +62,7 @@ var config_data = `
     "defaultValue": "1577"
   },
   { "name": "Auto Start Location",
-      "code": "fi",
+      "code": "asp",
       "type": "clickable_image",
       "filename": "2025/field_image.png",
       "dimensions": "12 6",
@@ -140,11 +140,11 @@ var config_data = `
   "type": "counter"
   },
   { "name": "Scored Processor",
-  "code": "asp",
+  "code": "sp",
   "type": "counter"
   },
   { "name": "Scored Net",
-  "code": "asn",
+  "code": "sn",
   "type": "counter"
   },
   { "name": "Missed Algae",
@@ -177,7 +177,7 @@ var config_data = `
     "defaultValue": "n/a"
   }, 
   { "name": "Where Climbed",
-    "code": "otsc",
+    "code": "wc",
     "type":"radio",
     "choices": {
       "0": "None<br>",
