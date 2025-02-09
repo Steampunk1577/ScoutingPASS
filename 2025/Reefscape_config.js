@@ -9,9 +9,7 @@ var config_data = `
     "type": "scouter",
     "size": 5,
     "maxSize": 50,
-    "required": "true",
-    "defaultValue": "Delete"
-
+    "required": "true"
   },
   { "name": "Event",
     "code": "e",
@@ -36,8 +34,7 @@ var config_data = `
     "type": "match",
     "min": 1,
     "max": 5000,
-    "required": "true",
-    "defaultValue": "1"
+    "required": "true"
   },
   { "name": "Robot",
     "code": "r",
@@ -50,16 +47,14 @@ var config_data = `
       "r3": "Red-3",
       "b3": "Blue-3"
     },
-    "required":"true",
-    "defaultValue": "r1"
-  },
+    "required":"true"
+    },
   { "name": "Team Number",
     "code": "t",
     "type": "team",
     "min": 1,
     "max": 99999,
-    "required": "true",
-    "defaultValue": "1577"
+    "required": "true"
   },
   { "name": "Auto Start Location",
       "code": "asp",
@@ -95,7 +90,7 @@ var config_data = `
   "type": "counter"
   },
   { "name": "Scored Processor",
-  "code": "asp",
+  "code": "aasp",
   "type": "counter"
   },
   { "name": "Scored Net",
