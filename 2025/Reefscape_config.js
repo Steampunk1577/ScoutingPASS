@@ -100,14 +100,6 @@ var config_data = `
   { "name": "Missed Algae",
   "code": "ama",
   "type": "counter"
-  },
-  { "name": "Pickup Algae From The Ground",
-  "code": "aftg",
-  "type": "counter"
-  },
-  { "name": "Algae From The Reef",
-  "code": "aftr",
-  "type": "counter"
   }
 ],
 "teleop": [
@@ -146,8 +138,8 @@ var config_data = `
   "code": "ma",
   "type": "counter"
   },
-  { "name": "Algae From The Reef",
-  "code": "afr",
+  { "name": "Can Remove Algae",
+  "code": "cra",
   "type": "bool"
   }
 ],
@@ -170,18 +162,6 @@ var config_data = `
       "cs": "Climbed Shallow"
     }, 
     "defaultValue": "n/a"
-  }, 
-  { "name": "Where Climbed",
-    "code": "wc",
-    "type":"radio",
-    "choices": {
-      "0": "None<br>",
-      "1": "Near The Truss<br>",
-      "2": "In The Middle<br>",
-      "3": "Outer Cage"
-    },
-    "defaultValue": "0",
-    "required": "true"
   }
 ],
 "postmatch": [
@@ -225,27 +205,9 @@ var config_data = `
     },
     "defaultValue":"n/a"
   },
-  { "name": "Intake Coral",
-  "code": "i",
-  "type": "radio",
-  "choices": {
-    "n/a": "Not Attempted<br>",
-    "g": "Ground<br>",
-    "s": "Coral Station<br>",
-    "b": "Both"
-  },
-  "defaultValue": "n/a"
-  },
-  { "name": "Intake Algae",
-  "code": "ia",
-  "type": "radio",
-  "choices": {
-    "n/a": "Not Attempted<br>",
-    "g": "Ground<br>",
-    "r": "Reef<br>",
-    "b": "Both"
-  },
-  "defaultValue": "n/a"
+  { "name": "Pick Coral From Ground",
+  "code": "pcfg",
+  "type": "bool"
   },
   { "name": "Foul Card",
     "code": "fc",
