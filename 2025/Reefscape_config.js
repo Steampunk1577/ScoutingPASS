@@ -14,7 +14,7 @@ var config_data = `
   { "name": "Event",
     "code": "e",
     "type": "event",
-    "defaultValue": "2024isos2",
+    "defaultValue": "2025isde1",
     "required": "true",
     "disabled": "true"
   },
@@ -120,7 +120,8 @@ var config_data = `
   },    
   { "name": "Scored Coral L1",
   "code": "sc1",
-  "type": "counter"
+  "type": "counter",
+  "cycleTimer": "tct"
   },
   { "name": "Missed Coral",
   "code": "mc",
@@ -158,8 +159,8 @@ var config_data = `
     "choices": {
       "n/a": "None<br>",
       "p": "Parked<br>",
-      "cd": "Climbed Deep<br>",
-      "cs": "Climbed Shallow"
+      "cs": "Climbed Shallow<br>",
+      "cd": "Climbed Deep"
     }, 
     "defaultValue": "n/a"
   }
