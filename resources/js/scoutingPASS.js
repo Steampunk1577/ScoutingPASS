@@ -258,6 +258,7 @@ function addAutoTimer(table, idx, name, data) {
 
   return idx + 1;
 }
+
 function addCounter(table, idx, name, data) {
   var row = table.insertRow(idx);
   var cell1 = row.insertCell(0);
