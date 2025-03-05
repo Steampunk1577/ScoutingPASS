@@ -1,4 +1,4 @@
-var devMode = true; // Change this to false to load the other config
+var devMode = false; // Change this to false to load the other config
 
 var devConfig = `
 {
@@ -133,19 +133,19 @@ var devConfig = `
   },
   { "name": "Missed Coral",
   "code": "mc",
-  "type": "counter"
+  "type": "resetcounter"
   },
   { "name": "Scored Processor",
   "code": "sp",
-  "type": "counter"
+  "type": "resetcounter"
   },
   { "name": "Scored Net",
   "code": "sn",
-  "type": "counter"
+  "type": "resetcounter"
   },
   { "name": "Missed Algae",
   "code": "ma",
-  "type": "counter"
+  "type": "resetcounter"
   },
   { "name": "Can Remove Algae",
   "code": "cra",
