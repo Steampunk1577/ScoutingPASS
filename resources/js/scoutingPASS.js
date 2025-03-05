@@ -259,7 +259,7 @@ function addAutoTimer(table, idx, name, data) {
   return idx + 1;
 }
 
-function addTimerCounter(table, idx, name, data) {
+function addCounterTimer(table, idx, name, data) {
   var row = table.insertRow(idx);
   var cell1 = row.insertCell(0);
   let cycleTimer = document.getElementById("cycleTimer");
@@ -278,7 +278,7 @@ function addTimerCounter(table, idx, name, data) {
 
   var button1 = document.createElement("input");
   button1.setAttribute("type", "button");
-  button1.setAttribute("onclick", "counter(this.parentElement, -1,undoCycle, event )");
+  button1.setAttribute("onclick", "counterTimer(this.parentElement, -1,undoCycle, event )");
   button1.setAttribute("value", "-");
   cell2.appendChild(button1);
 
@@ -302,7 +302,7 @@ function addTimerCounter(table, idx, name, data) {
 
   var button2 = document.createElement("input");
   button2.setAttribute("type", "button");
-  button2.setAttribute("onclick", "counter(this.parentElement, 1 ,newCycle,event )");
+  button2.setAttribute("onclick", "counterTimer(this.parentElement, 1 ,newCycle,event )");
   button2.setAttribute("value", "+");
   cell2.appendChild(button2);
 
@@ -824,7 +824,7 @@ function addElement(table, idx, data) {
   } else if (data.type == 'counter') {
     idx = addCounter(table, idx, name, data);
   } else if (data.type == 'timercounter') {
-    idx = addTimerCounter(table, idx, name, data, true, true);
+    idx = addCounterTimer(table, idx, name, data, true, true);
   } else if ((data.type == 'timer') ||
 	     (data.type == 'cycle')) {
     idx = addTimer(table, idx, name, data);
@@ -1524,7 +1524,7 @@ function counter(element, step) {
     ctr.value = 0;
   }
 }
-function counter(element, step, aditionalFunction, event) {
+function counterTimer(element, step, aditionalFunction, event) {
   let target = event.target;
   let base = getIdBase(target.id);
   var ctr = element.getElementsByClassName("counter")[0];
@@ -1533,10 +1533,6 @@ function counter(element, step, aditionalFunction, event) {
   var result = parseInt(ctr.value) + step;
   var result = parseInt(ctr.value) + step;
   var result = parseInt(ctr.value) + step;
-
-  // if (cycleTimer != null) {
-  //   document.getElementById("cycle_" + cycleTimer.value).click();
-  // }
 
 
   if (isNaN(result)) {
