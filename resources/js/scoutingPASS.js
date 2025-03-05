@@ -259,6 +259,64 @@ function addAutoTimer(table, idx, name, data) {
   return idx + 1;
 }
 
+function addTimerCounter(table, idx, name, data) {
+  var row = table.insertRow(idx);
+  var cell1 = row.insertCell(0);
+  let cycleTimer = document.getElementById("cycleTimer");
+  cell1.classList.add("title");
+  if (!data.hasOwnProperty('code')) {
+      cell1.innerHTML = `Error: No code specified for ${name}`;
+      return idx + 1;
+  }
+
+  var cell2 = row.insertCell(1);
+  cell1.innerHTML = name + '&nbsp;';
+  if (data.hasOwnProperty('tooltip')) {
+      cell1.setAttribute("title", data.tooltip);
+  }
+  cell2.classList.add("field");
+
+  var button1 = document.createElement("input");
+  button1.setAttribute("type", "button");
+  button1.setAttribute("onclick", "counter(this.parentElement, -1,undoCycle, event )");
+  button1.setAttribute("value", "-");
+  cell2.appendChild(button1);
+
+  var inp = document.createElement("input");
+  inp.classList.add("counter");
+  inp.setAttribute("id", "input_" + data.code);
+  inp.setAttribute("type", "text");
+
+  if (enableGoogleSheets && data.hasOwnProperty('gsCol')) {
+      inp.setAttribute("name", data.gsCol);
+  } else {
+      inp.setAttribute("name", data.code);
+  }
+
+  inp.setAttribute("style", "background-color: black; color: white;border: none; text-align: center;");
+  inp.setAttribute("disabled", "");
+  inp.setAttribute("value", 0);
+  inp.setAttribute("size", 2);
+  inp.setAttribute("maxLength", 2);
+  cell2.appendChild(inp);
+
+  var button2 = document.createElement("input");
+  button2.setAttribute("type", "button");
+  button2.setAttribute("onclick", "counter(this.parentElement, 1 ,newCycle,event )");
+  button2.setAttribute("value", "+");
+  cell2.appendChild(button2);
+
+  if (data.hasOwnProperty('defaultValue')) {
+      var def = document.createElement("input");
+      def.setAttribute("id", "default_" + data.code)
+      def.setAttribute("type", "hidden");
+      def.setAttribute("value", data.defaultValue);
+      cell2.appendChild(def);
+  }
+
+  return idx + 1;
+}
+
 function addCounter(table, idx, name, data) {
   var row = table.insertRow(idx);
   var cell1 = row.insertCell(0);
@@ -765,6 +823,8 @@ function addElement(table, idx, data) {
     idx = addCheckbox(table, idx, name, data);
   } else if (data.type == 'counter') {
     idx = addCounter(table, idx, name, data);
+  } else if (data.type == 'timercounter') {
+    idx = addTimerCounter(table, idx, name, data, true, true);
   } else if ((data.type == 'timer') ||
 	     (data.type == 'cycle')) {
     idx = addTimer(table, idx, name, data);
@@ -1464,10 +1524,48 @@ function counter(element, step) {
     ctr.value = 0;
   }
 }
+function counter(element, step, aditionalFunction, event) {
+  let target = event.target;
+  let base = getIdBase(target.id);
+  var ctr = element.getElementsByClassName("counter")[0];
+  var ctr = element.getElementsByClassName("counter")[0];
+  let cycleTimer = document.getElementById("cycleTimer");
+  var result = parseInt(ctr.value) + step;
+  var result = parseInt(ctr.value) + step;
+  var result = parseInt(ctr.value) + step;
 
-function newCycle(event)
-{
-  let timerID = event.firstChild;
+  // if (cycleTimer != null) {
+  //   document.getElementById("cycle_" + cycleTimer.value).click();
+  // }
+
+
+  if (isNaN(result)) {
+    result = 0;
+  }
+
+  if (result >= 0 || ctr.hasAttribute('data-negative')) {
+    ctr.value = result;
+  } else {
+    ctr.value = 0;
+  }
+
+  if (typeof aditionalFunction === "function") {
+    aditionalFunction(event, false); // Execute the passed function
+  } else {
+    console.error("Passed argument is not a function");
+  } 
+}
+
+
+function newCycle(event, usefirstChild){
+  let out;
+  if(usefirstChild) {
+    out = event.firstChild; 
+  }
+  else { 
+    out = document.getElementById("cycletime_tct")
+  }
+  let timerID = out;
   let base = getIdBase(timerID.id);
   let inp = document.getElementById("input" + base)
   let cycleTime = inp.value
@@ -1500,8 +1598,15 @@ function newAutoCycle(event)
   }
 }
 
-function undoCycle(event) {
-  let undoID = event.firstChild;
+function undoCycle(event, usefirstChild) {
+  let out;
+  if(usefirstChild) {
+    out = event.firstChild; 
+  }
+  else { 
+    out = document.getElementById("cycletime_tct")
+  }
+  let undoID = out;
   let uId = getIdBase(undoID.id);
   //Getting rid of last value
   let cycleInput = document.getElementById("cycletime" + uId);

@@ -120,8 +120,7 @@ var config_data = `
   },    
   { "name": "Scored Coral L1",
   "code": "sc1",
-  "type": "counter",
-  "cycleTimer": "tct"
+  "type": "timercounter"
   },
   { "name": "Missed Coral",
   "code": "mc",
