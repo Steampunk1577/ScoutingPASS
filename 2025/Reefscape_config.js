@@ -18,7 +18,7 @@ var devConfig = `
   { "name": "Event",
     "code": "e",
     "type": "event",
-    "defaultValue": "2025isde1",
+    "defaultValue": "2025isde4",
     "required": "true",
     "disabled": "true"
   },
