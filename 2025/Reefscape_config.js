@@ -310,7 +310,7 @@ var prodConfig = `
   { "name": "Event",
     "code": "e",
     "type": "event",
-    "defaultValue": "2025isde1",
+    "defaultValue": "2025isde4",
     "required": "true",
     "disabled": "true"
   },
@@ -420,19 +420,19 @@ var prodConfig = `
   },
   { "name": "Missed Coral",
   "code": "mc",
-  "type": "counter"
+  "type": "resetcounter"
   },
   { "name": "Scored Processor",
   "code": "sp",
-  "type": "counter"
+  "type": "resetcounter"
   },
   { "name": "Scored Net",
   "code": "sn",
-  "type": "counter"
+  "type": "resetcounter"
   },
   { "name": "Missed Algae",
   "code": "ma",
-  "type": "counter"
+  "type": "resetcounter"
   },
   { "name": "Can Remove Algae",
   "code": "cra",
