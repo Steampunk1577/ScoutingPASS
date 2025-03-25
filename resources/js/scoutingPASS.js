@@ -217,7 +217,7 @@ function addClimbTimer(table, idx, name, data) {
   var button2 = document.createElement("input");
   button2.setAttribute("id", "clear_" + data.code);
   button2.setAttribute("type", "button");
-  button2.setAttribute("onclick", "resetTimer(this.parentElement)");
+  button2.setAttribute("onclick", "resetTimerClimb(this.parentElement)");
   button2.setAttribute("value", "Reset");
   cell.appendChild(button2);
   var lineBreak = document.createElement("br");
@@ -404,7 +404,7 @@ function addCounterTimer(table, idx, name, data) {
   var button1 = document.createElement("input");
   button1.setAttribute("type", "button");
   button1.setAttribute("onclick", "counterTimer(this.parentElement, -1,undoCycle, event )");
-  button1.setAttribute("value", "-");
+  button1.setAttribute("value", " - ");
   cell2.appendChild(button1);
 
   var inp = document.createElement("input");
@@ -428,7 +428,7 @@ function addCounterTimer(table, idx, name, data) {
   var button2 = document.createElement("input");
   button2.setAttribute("type", "button");
   button2.setAttribute("onclick", "counterTimer(this.parentElement, 1 ,newCycle,event )");
-  button2.setAttribute("value", "+");
+  button2.setAttribute("value", " + ");
   cell2.appendChild(button2);
 
   if (data.hasOwnProperty('defaultValue')) {
@@ -461,7 +461,7 @@ function addCounter(table, idx, name, data) {
   var button1 = document.createElement("input");
   button1.setAttribute("type", "button");
   button1.setAttribute("onclick", "counter(this.parentElement, -1)");
-  button1.setAttribute("value", "-");
+  button1.setAttribute("value", " - ");
   cell2.appendChild(button1);
 
   var inp = document.createElement("input");
@@ -485,7 +485,7 @@ function addCounter(table, idx, name, data) {
   var button2 = document.createElement("input");
   button2.setAttribute("type", "button");
   button2.setAttribute("onclick", "counter(this.parentElement, 1)");
-  button2.setAttribute("value", "+");
+  button2.setAttribute("value", " + ");
   cell2.appendChild(button2);
 
   if (data.hasOwnProperty('defaultValue')) {
@@ -517,7 +517,7 @@ function addCounterReset(table, idx, name, data) {
   var button1 = document.createElement("input");
   button1.setAttribute("type", "button");
   button1.setAttribute("onclick", "counter(this.parentElement, -1)");
-  button1.setAttribute("value", "-");
+  button1.setAttribute("value", " - ");
   cell2.appendChild(button1);
 
   var inp = document.createElement("input");
@@ -541,7 +541,7 @@ function addCounterReset(table, idx, name, data) {
   var button2 = document.createElement("input");
   button2.setAttribute("type", "button");
   button2.setAttribute("onclick", "counterTimer(this.parentElement, 1,resetTimer, event)");
-  button2.setAttribute("value", "+");
+  button2.setAttribute("value", " + ");
   cell2.appendChild(button2);
 
   if (data.hasOwnProperty('defaultValue')) {
@@ -1802,12 +1802,19 @@ async function startFirstTimer(){
   document.getElementById("start_tct").click();
 }
 
-function resetTimer(event) {
-  let timerID = event.firstChild;
-  let tId = getIdBase(timerID.id);
-  let inp = document.getElementById("input" + tId)
-  inp.value = 0
-}
+function resetTimerClimb(event,usefirstChild) {
+    let out;
+    if( usefirstChild) { 
+      out = event.firstChild
+    } else { 
+      out = document.getElementById("input_ct");
+    }
+    let timerID = out;
+    let tId = getIdBase(timerID.id);
+    let inp = document.getElementById("input" + tId)
+    inp.value = 0
+  }
+
 function resetTimer(event,usefirstChild) {
   let out;
   if( usefirstChild) { 

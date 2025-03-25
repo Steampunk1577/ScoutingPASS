@@ -18,7 +18,7 @@ var devConfig = `
   { "name": "Event",
     "code": "e",
     "type": "event",
-    "defaultValue": "2025isde4",
+    "defaultValue": "2025iscmp",
     "required": "true",
     "disabled": "true"
   },
@@ -310,7 +310,7 @@ var prodConfig = `
   { "name": "Event",
     "code": "e",
     "type": "event",
-    "defaultValue": "2025isde4",
+    "defaultValue": "2025iscmp",
     "required": "true",
     "disabled": "true"
   },
